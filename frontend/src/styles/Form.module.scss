@@ -1,0 +1,64 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+  background-color: #ffffff; // White
+  padding: 2em; 
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 0 auto; // Center the form
+}
+
+.formItem {
+  padding: 0.8em; 
+  margin: 1em 0; 
+  flex-grow: 1;
+  background-color: #ffffff; // White 
+  border: 1px solid #7b8f1d; // Lighter green border
+  border-radius: 8px;
+  color: #23360e; // Dark green
+  font-size: 1em; 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formItem:focus {
+  border-color: #456226; // lighter green
+  box-shadow: 0 0 8px rgba(123, 143, 29, 0.5);
+}
+
+.formTextArea {
+  @extend .formItem; // Inherit all styles from .formItem
+  min-height: 10em; 
+  resize: vertical; 
+}
+
+.inlineGroup {
+  display: flex;
+  gap: 1em; 
+  margin-bottom: 1em; 
+}
+
+.inlineItem {
+  flex: 1; 
+  min-width: 200px; 
+}
+
+.buttonItem {
+  padding: 0.7em 1.2em; 
+  font-size: 1.1em; 
+  background-color: #23360e; // Dark green
+  color: #ffffff; // White
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttonItem:hover {
+  background-color: #456226; // lighter green
+  transform: scale(1.05); // Slightly enlarge on hover
+}
+
+.buttonItem:active {
+  transform: scale(0.95); // Slightly shrink on click for feedback
+}

@@ -1,0 +1,13 @@
+.user_container {
+  position: absolute;
+  aspect-ratio: 1;
+  backdrop-filter: brightness(80%); // Slight darkening
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  border-radius: 100%;
+  background-color: #7b8f1d; // Lighter green 
+  color: #ffffff; // white
+  left: 1em;
+}

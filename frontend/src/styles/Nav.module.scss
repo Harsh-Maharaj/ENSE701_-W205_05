@@ -1,0 +1,129 @@
+.navbarContainer {
+  width: 100%;
+  background-color: #23360e !important; // Dark green background
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em 2em;
+  background-color: #23360e; // Dark green background
+
+  @media (max-width: 768px) {
+    flex-direction: row; // Ensure the title and hamburger are on the same line
+    padding: 0.5em 1em; // Adjust padding for mobile
+  }
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+  color: #d0b50b; // Yellow-Green color
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #d0b50b; // Yellow-Green color
+  margin-left: auto; // Ensure it stays to the right of the title
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.navLinks { 
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: #23360e; // Dark green background
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1em 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.show {
+  display: flex !important; // Show menu when toggled
+}
+
+.navitem {
+  font-family: 'Oswald', sans-serif;
+  color: #d0b50b; // Yellow-Green color
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1em; // Smaller font size for links on mobile
+    padding: 0.8em 0; // Adjust padding for links on mobile
+  }
+}
+
+.navitem:hover {
+  color: #ffffff; // white color on hover
+}
+
+.adminDropdown {  
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.adminDropdownContent {  
+  display: none;
+  position: absolute;
+  background-color: #456226; // lighter green
+  min-width: 10em;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-family: 'Oswald', sans-serif;
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+.adminDropdownContent a {
+  color: #d0b50b; // Yellow-Green
+  padding: 10px 14px; // Adjust padding for dropdown links on mobile
+  text-decoration: none;
+  display: block;
+
+  @media (max-width: 768px) {
+    padding: 0.5em 0.8em; // Smaller padding on mobile
+  }
+}
+
+.adminDropdownContent a:hover {
+  background-color: #23360e; // Dark green
+}
+
+.adminDropdown:hover .adminDropdownContent {
+  display: block;
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: center;
+  }
+}
