@@ -12,26 +12,42 @@ const NavBar = () => {
   return (
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>
-        <Link href="/" className={styles.title}>
-          SPEED
+        {/* Title with Link */}
+        <Link href="/">
+          <a className={styles.title}>SPEED</a>
         </Link>
+
+        {/* Hamburger Menu Icon */}
         <div className={styles.hamburger} onClick={toggleMenu}>
           ☰
         </div>
+
+        {/* Navigation Links */}
         <div className={`${styles.navLinks} ${isOpen ? styles.show : ""}`}>
-          <Link href="/articles" className={styles.navitem}>
-            All Articles
+          {/* Articles Link */}
+          <Link href="/articles">
+            <a className={styles.navitem}>All Articles</a>
           </Link>
-          <Link href="/articles/new" className={styles.navitem}>
-            New Article
+
+          {/* New Article Link */}
+          <Link href="/articles/new">
+            <a className={styles.navitem}>New Article</a>
           </Link>
+
+          {/* Admin Dropdown */}
           <div className={styles.adminDropdown}>
-            <Link href="#" className={styles.navitem}>
-              Admin
+            <Link href="#">
+              <a className={styles.navitem}>Admin</a>
             </Link>
+
+            {/* Dropdown Content */}
             <div className={styles.adminDropdownContent}>
-              <Link href="/admin/dashboard">Dashboard</Link>
-              <Link href="/admin/settings">Settings</Link>
+              <Link href="/admin/dashboard">
+                <a>Dashboard</a>
+              </Link>
+              <Link href="/admin/settings">
+                <a>Settings</a>
+              </Link>
             </div>
           </div>
         </div>

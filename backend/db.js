@@ -5,7 +5,7 @@ dotenv.config();
 
 async function connectToDb(callback) {
   try {
-    await mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.mqsbp.mongodb.net/SPEEDDB?retryWrites=true&w=majority`, {
+    await mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@ense701-w205-05.5b1zs.mongodb.net/?retryWrites=true&w=majority&appName=ENSE701-W205-05`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
