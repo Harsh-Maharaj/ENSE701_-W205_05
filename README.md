@@ -178,8 +178,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any inquiries or issues, please contact:
 
 - **Project Lead:** Harsh Maharaj
-- **Email:** [harsh.maharaj@example.com](mailto:harsh.maharaj@example.com)
-- **GitHub:** [your-username](https://github.com/your-username)
+- **GitHub:** [Harsh-Maharaj](https://github.com/Harsh-Maharaj)
 
 ## **Acknowledgements**
 
