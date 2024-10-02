@@ -1,0 +1,32 @@
+.searchBarContainer {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+
+}
+
+.inputWrapper {
+   background-color: #F9F9F9;
+   width: 100%;
+   border-radius: 10px;
+   height: 2.5rem;
+   padding: 0 0 0 15px;
+   box-shadow: 0px 0px 8px #ddd;
+   display: flex;
+   align-items: center;
+}
+
+.inputField {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.inputField:Focus {
+    outline: none;
+}

@@ -1,0 +1,17 @@
+/* src/components/Home.module.css */
+.container {
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Centering the container */
+    padding: 20px; /* Padding around the content */
+    background-color: #f9f9f9; /* Light background for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+  }
+  
+  .section {
+    margin-top: 20px; /* Space between sections */
+    padding: 20px; /* Padding inside sections */
+    background-color: white; /* Background color for sections */
+    border-radius: 8px; /* Rounded corners for sections */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow for each section */
+  }
+  

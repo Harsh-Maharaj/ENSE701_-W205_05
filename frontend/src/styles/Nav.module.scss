@@ -1,6 +1,8 @@
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 .navbarContainer {
   width: 100%;
-  background-color: #23360e !important; // Dark green background
+  background-color: #004aad !important; // green
 }
 
 .navbar {
@@ -10,26 +12,30 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 1em 2em;
-  background-color: #23360e; // Dark green background
+  background-color: #004aad; // Dark green background
 
   @media (max-width: 768px) {
-    flex-direction: row; // Ensure the title and hamburger are on the same line
-    padding: 0.5em 1em; // Adjust padding for mobile
+    flex-direction: row;
+    padding: 0.5em 1em;
   }
 }
 
 .title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 2em;
   color: #d0b50b; // Yellow-Green color
   text-decoration: none;
+}
+
+.title:hover {
+  color: #ffffff; // White
 }
 
 .hamburger {
   display: none;
   font-size: 2em;
   cursor: pointer;
-  color: #d0b50b; // Yellow-Green color
+  color: #ffffff; // white
   margin-left: auto; // Ensure it stays to the right of the title
 
   @media (max-width: 768px) {
@@ -37,18 +43,19 @@
   }
 }
 
-.navLinks { 
+.navLinks {
   display: flex;
   gap: 1em;
   align-items: center;
   flex-wrap: wrap;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     flex-direction: column;
     display: none;
     width: 100%;
     text-align: center;
-    background-color: #23360e; // Dark green background
+    background-color: #004aad; // green
     position: absolute;
     top: 60px;
     left: 0;
@@ -62,24 +69,24 @@
 }
 
 .navitem {
-  font-family: 'Oswald', sans-serif;
-  color: #d0b50b; // Yellow-Green color
+  font-family: 'Roboto', sans-serif;
+  color: #ffff; // white
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1em;
   transition: color 0.3s;
   text-align: center;
 
-  @media (max-width: 768px) {
-    font-size: 1em; // Smaller font size for links on mobile
-    padding: 0.8em 0; // Adjust padding for links on mobile
+  @media (max-width: 850px) {
+    font-size: 0.8em;
+    padding: 0.1em 0;
   }
 }
 
 .navitem:hover {
-  color: #ffffff; // white color on hover
+  color: #d0b50b; // yellow-green
 }
 
-.adminDropdown {  
+.adminDropdown {
   position: relative;
 
   @media (max-width: 768px) {
@@ -88,14 +95,13 @@
   }
 }
 
-.adminDropdownContent {  
+.adminDropdownContent {
   display: none;
   position: absolute;
-  background-color: #456226; // lighter green
+  background-color: #004aad; // green
   min-width: 10em;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  font-family: 'Oswald', sans-serif;
 
   @media (max-width: 768px) {
     position: static;
@@ -105,7 +111,7 @@
 }
 
 .adminDropdownContent a {
-  color: #d0b50b; // Yellow-Green
+  color: #fff; // white
   padding: 10px 14px; // Adjust padding for dropdown links on mobile
   text-decoration: none;
   display: block;
@@ -116,7 +122,7 @@
 }
 
 .adminDropdownContent a:hover {
-  background-color: #23360e; // Dark green
+  background-color: #d0b50b; // yellow-green
 }
 
 .adminDropdown:hover .adminDropdownContent {

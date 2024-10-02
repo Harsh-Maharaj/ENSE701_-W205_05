@@ -1,14 +1,17 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
-//import PopulatedNavBar from "../components/PopulatedNavBar";
-import NavBar from "@/components/nav/NavBar";
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+import Layout from "../components/Layout"; // Import Layout
+import dotenv from 'dotenv';
+import App from "next/app";
+import { Component } from "react";
+
+dotenv.config();
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <NavBar/>
+    <Layout>
       <Component {...pageProps} />
-    </SessionProvider>
+    </Layout>
   );
 }
 

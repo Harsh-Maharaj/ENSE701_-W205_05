@@ -2,20 +2,18 @@
   width: 100%;
   border-collapse: collapse;
   margin: 1em 0;
-  font-family: 'Source Serif Pro', serif;
   font-size: 1em;
-  color: #23360e; // Dark green text
+  color: #004aad; // Dark green text
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 
   thead {
-    background-color: #456226; // green 
+    background-color: #004aad; // green 
     color: #ffffff; // White 
   }
 
   th {
     padding: 1em;
     text-align: left;
-    font-weight: bold;
     font-size: 1.1em;
     border-bottom: 2px solid #456226; // lighter green
   }
