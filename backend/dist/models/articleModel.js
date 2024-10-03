@@ -5,7 +5,8 @@ const articleSchema = new Schema({
     source: { type: String, required: true },
     publication_year: { type: Number, required: true },
     doi: { type: String, required: false },
-    summary: { type: String, required: false },
+    claim: { type: String, required: false },
+    evidence: { type: String, required: false },
     linked_discussion: { type: String, required: false },
 });
 export default mongoose.model('Article', articleSchema);

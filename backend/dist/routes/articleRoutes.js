@@ -3,7 +3,7 @@ import Article from '../models/articleModel.js'; // Import the Mongoose model
 const router = express.Router();
 // POST /api/articles - Add a new article
 router.post('/', async (req, res) => {
-    const { title, authors, source, publication_year, doi, summary, linked_discussion } = req.body;
+    const { title, authors, source, publication_year, doi, claim, evidence, linked_discussion } = req.body;
     try {
         // Create a new article document
         const article = new Article({
@@ -12,7 +12,8 @@ router.post('/', async (req, res) => {
             source,
             publication_year,
             doi,
-            summary,
+            claim,
+            evidence,
             linked_discussion,
         });
         // Save the article to the database

@@ -7,7 +7,8 @@ const NewDiscussion = () => {
   const [source, setSource] = useState("");
   const [pubYear, setPubYear] = useState<number>(0);
   const [doi, setDoi] = useState("");
-  const [summary, setSummary] = useState("");
+  const [claim, setClaim] = useState("");
+  const [evidence, setEvidence] = useState("");
   const [linkedDiscussion, setLinkedDiscussion] = useState("");
 
   const submitNewArticle = async (event: FormEvent<HTMLFormElement>) => {
@@ -25,12 +26,12 @@ const NewDiscussion = () => {
           source,
           publication_year: pubYear,
           doi,
-          summary,
+          claim,
+          evidence,
           linked_discussion: linkedDiscussion,
         }),
       });
   
-      // Check if the response is not OK
       if (!res.ok) {
         const contentType = res.headers.get('Content-Type');
         if (contentType && contentType.includes('application/json')) {
@@ -44,10 +45,20 @@ const NewDiscussion = () => {
       } else {
         const data = await res.json();
         console.log('Article submitted:', data);
+        alert('Article submitted successfully!');  // Show success message
+        // Clear form
+        setTitle('');
+        setAuthors([]);
+        setSource('');
+        setPubYear(0);
+        setDoi('');
+        setClaim('');
+        setEvidence('');
+        setLinkedDiscussion('');
+        // setBibtex('');
       }
     } catch (error) {
       console.error('Error submitting article:', error);
-      //alert(`Error submitting article: ${error.message}`);
     }
   };
   
@@ -161,12 +172,28 @@ const NewDiscussion = () => {
           }}
         />
 
-        <label htmlFor="summary">Summary:</label>
-        <textarea
-          className={formStyles.formTextArea}
-          name="summary"
-          value={summary}
-          onChange={(event) => setSummary(event.target.value)}
+        <label htmlFor="claim">Claim:</label>
+        <input
+          className={formStyles.formItem}
+          type="text"
+          name="claim"
+          id="claim"
+          value={claim}
+          onChange={(event) => {
+            setClaim(event.target.value);
+          }}
+        />
+
+        <label htmlFor="evidence">Evidence:</label>
+        <input
+          className={formStyles.formItem}
+          type="text"
+          name="evidence"
+          id="evidence"
+          value={evidence}
+          onChange={(event) => {
+            setEvidence(event.target.value);
+          }}
         />
 
         <button className={formStyles.formItem} type="submit">
