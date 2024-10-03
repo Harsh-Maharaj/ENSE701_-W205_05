@@ -1,31 +1,139 @@
+/* Global Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f4f8; /* Light background */
+  color: #1e3a8a; /* Dark blue for text */
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  text-align: center;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0;
+  color: #1e3a8a; /* Dark blue for headers */
+}
+
+/* Form Styling */
 .form {
-    display: flex;
-    flex-direction: column;
-    max-width: 30em;
+  display: flex;
+  flex-direction: column;
+  max-width: 30em;
+  margin: 2em auto; /* Center form with some margin */
+  padding: 2em;
+  background-color: #fff; /* White background for form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #d1d5db; /* Light border */
+}
+
+/* Form Items */
+.formItem {
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  border: 1px solid #d1d5db; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus State */
+.formItem:focus {
+  border-color: #3b82f6; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.3); /* Blue glow */
+}
+
+/* Text Area */
+.formTextArea {
+  min-height: 8em;
+  resize: vertical; /* Allow resizing vertically */
+}
+
+/* Array Item Container */
+.arrayItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  gap: 0.5em; /* Space between elements */
+}
+
+/* Buttons */
+.buttonItem {
+  width: 3rem;
+  height: 3rem;
+  flex-grow: 0;
+  font-size: 1.5em;
+  background-color: #4f46e5; /* Primary blue */
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Button Hover Effect */
+.buttonItem:hover {
+  background-color: #6366f1; /* Lighter blue */
+  transform: scale(1.05);
+}
+
+/* Form Label Styling */
+label {
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  display: block;
+  color: #4b5563; /* Grayish color for labels */
+}
+
+/* Input Styling */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%;
+  padding: 0.75em 1em;
+  margin-top: 0.25em;
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1em;
+}
+
+/* Submit Button Styling */
+button[type="submit"], .btn {
+  background-color: #1e3a8a; /* Darker blue */
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Submit Button Hover Effect */
+button[type="submit"]:hover, .btn:hover {
+  background-color: #3b82f6; /* Brighter blue */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .form {
+    max-width: 100%;
+    padding: 1.5em;
   }
-  
-  .formItem {
-    padding: 1em;
-    margin: 1em 0;
-    flex-grow: 1;
+
+  .formItem, .buttonItem {
+    font-size: 1em;
   }
-  
-  .formTextArea {
-    @extend .formItem;
-    min-height: 8em;
-  }
-  
-  .arrayItem {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: stretch;
-  }
-  
-  .buttonItem {
-    width: 3rem;
-    height: 3rem;
-    flex-grow: 0;
-    font-size: 1.5em;
-  }
-  
+}

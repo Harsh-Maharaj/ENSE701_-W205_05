@@ -1,7 +1,7 @@
 import { IoMdArrowDropdown } from "react-icons/io";
-import NavBar from "./nav/NavBar";
-import NavDropdown from "./nav/NavBar";
-import NavItem from "./nav/NavItem";
+import NavBar from "../nav/NavBar"; // Corrected path
+import NavDropdown from "../nav/NavDropDown"; // Corrected path
+import NavItem from "../nav/NavItem"; // Corrected path
 
 const PopulatedNavBar = () => {
   return (
