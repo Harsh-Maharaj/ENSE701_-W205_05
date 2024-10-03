@@ -1,0 +1,184 @@
+.container {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+.field input,
+.field textarea,
+.field select,
+.input {
+  padding: 0.75em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 95%;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input {
+  margin-left: 8px;
+}
+
+/* Apply styles for all inputs on focus */
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+/* for shorter input fields */
+.shortTextField {
+  max-width: 150px;
+}
+
+/* for long text areas */
+.longTextField {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.authorField {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 0.5em;
+}
+
+.removeButton {
+  background-color: #e74c3c; /* Red */
+  color: #fff; /* White */
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  background-color: #c0392b; /* Darker red */
+}
+
+.addButton {
+  background-color:  #006400; /* green */
+  color: #fff; /* White */
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: #000000; /* black */
+}
+
+.submitButton {
+  background-color: #006400; /* green */
+  color: #fff; /* White */
+  border: none;
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #000000; /* black */
+}
+
+/* Section separator with text */
+.sectionSeparator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.sectionSeparator span {
+  padding: 0 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+}
+
+.sectionSeparator::before,
+.sectionSeparator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Inline group for name and email fields */
+.inlineGroup {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.inlineItem {
+  flex: 1;
+  min-width: 200px;
+}
+
+.articleCard {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submissionsList {
+  margin-top: 20px;
+}
+
+.articleItem {
+  margin-bottom: 10px;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #000000; /* black */
+}
+
+.searchIcon:hover {
+  color: #006400; /* green */
+}

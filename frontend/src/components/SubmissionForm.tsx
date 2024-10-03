@@ -1,11 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import styles from "../../styles/Form.module.scss";
+import styles from "../styles/Forms.module.scss";
 
 export default function SubmissionForm() {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data: any) => JSON.stringify(data);
+  const onSubmit = (data: any) => {
+    console.log("Form data:", JSON.stringify(data)); // Handle form submission
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

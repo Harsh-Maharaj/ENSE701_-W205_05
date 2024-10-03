@@ -1,0 +1,118 @@
+.footer {
+    background-color: #006400; // green
+    color: #fff; // white text
+    padding: 2rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .footerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 2em;
+  }
+  
+  .titleContainer {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    color: #d0b50b; // yellow-green
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #fff; // white
+  }
+  
+  .navLinks, .about {
+    flex: 1;
+    text-align: left;
+  
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #d0b50b; // yellow-green on hover
+      text-align: left;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        margin: 0.5rem 0;
+  
+        a {
+          font-size: 1rem;
+          color: #fff; // white
+          text-decoration: none;
+          transition: color 0.3s;
+  
+          &:hover {
+            color: #d0b50b; // yellow-green on hover
+          }
+        }
+      }
+    }
+  
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #fff; // white
+    }
+  }
+  
+  // Copyright and GitHub link at the bottom
+  .footerBottom {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #fff;
+    
+    p {
+      margin: 0.5rem 0;
+      color: #ccc; // light grey
+      font-size: 0.9rem;
+    }
+  
+    .githubLink {
+      color: #000; // black
+      margin-left: 8px;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: #d0b50b; // yellow-green on hover
+      }
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .footerContainer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .navLinks {
+      text-align: center;
+    }
+  
+    .about {
+      text-align: center;
+    }
+
+    .about h3, .navLinks h3 {
+      text-align: center;
+    }
+  }
+  
