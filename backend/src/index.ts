@@ -21,7 +21,7 @@ connectDB();
 
 // Define routes
 app.use('/api/auth', authRoutes);
-app.use('/api/article', articleRoutes);
+app.use('/api/articles', articleRoutes);
 app.use('/api/moderation', moderationRoutes);
 app.use('/api/search', searchRoutes);
 

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as searchService from '../services/searchService';
+import * as searchService from '../services/searchService.js';
 
 export const searchArticles = async (req: Request, res: Response) => {
   try {

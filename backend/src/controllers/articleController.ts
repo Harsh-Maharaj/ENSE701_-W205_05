@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as articleService from '../services/articleService';
+import * as articleService from '../services/articleService.js';
 
 export const someFunction = async (req: Request, res: Response) => { // Add types for req and res
   try {

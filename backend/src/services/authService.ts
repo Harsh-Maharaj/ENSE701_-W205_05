@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/userModel'; // Only import the model from userModel.ts
-import { IUser } from '../interfaces/userInterface'; // Import the interface from interfaces folder
+import User from '../models/userModel.js'; // Only import the model from userModel.ts
+import { IUser } from '../interfaces/userInterface.js'; // Import the interface from interfaces folder
 
 
 export const signup = async (email: string, password: string, role: string) => {

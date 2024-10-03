@@ -1,5 +1,5 @@
 import express from 'express';
-import { approveArticle } from '../controllers/moderationController';
+import { approveArticle } from '../controllers/moderationController.js';
 
 const router = express.Router();
 

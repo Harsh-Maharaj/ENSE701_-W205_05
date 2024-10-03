@@ -1,4 +1,4 @@
-import * as searchService from '../services/searchService';
+import * as searchService from '../services/searchService.js';
 export const searchArticles = async (req, res) => {
     try {
         const query = req.query.q;

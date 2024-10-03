@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as moderationService from '../services/moderationService';
+import * as moderationService from '../services/moderationService.js';
 
 export const approveArticle = async (req: Request, res: Response) => {
   try {

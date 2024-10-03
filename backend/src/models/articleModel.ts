@@ -1,13 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
 import { IArticle } from '../interfaces/articleInterface';
 
-const articleSchema = new Schema<IArticle>({
+const articleSchema = new Schema({
   title: { type: String, required: true },
-  author: { type: String, required: true },
-  bibtex: { type: String },
-  submitter: { type: Schema.Types.ObjectId, ref: 'User' },
-  status: { type: String, default: 'submitted' },
-  rating: { type: Number, default: 0 }
+  authors: { type: [String], required: true },
+  source: { type: String, required: true },
+  publication_year: { type: Number, required: true },
+  doi: { type: String, required: false },
+  summary: { type: String, required: false },
+  linked_discussion: { type: String, required: false },
 });
 
 export default mongoose.model<IArticle>('Article', articleSchema);

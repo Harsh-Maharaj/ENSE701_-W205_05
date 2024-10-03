@@ -33,43 +33,36 @@
 }
 
 /* Table Styles */
-table {
+/* Refactor the global styles to local classes */
+.articleTable {
   width: 100%;
   border-collapse: collapse;
   background-color: #f9fafb;
 }
 
-/* Table Head Styling */
-thead {
+.articleTable thead {
   background-color: #1e3a8a; /* Dark blue */
   color: #ffffff;
 }
 
-th,
-td {
+.articleTable th, .articleTable td {
   padding: 1em;
   text-align: left;
   border-bottom: 1px solid #d1d5db;
 }
 
-th {
-  cursor: pointer;
-  position: relative;
-  font-weight: 700;
-}
-
-th:hover {
+.articleTable th:hover {
   background-color: #3b82f6; /* Lighter blue on hover */
 }
 
-/* Row Styles */
-tbody tr:nth-child(even) {
+.articleTable tbody tr:nth-child(even) {
   background-color: #f3f4f6; /* Alternate row color */
 }
 
-tbody tr:hover {
+.articleTable tbody tr:hover {
   background-color: #e5e7eb; /* Row hover effect */
 }
+
 
 /* View Button Styling */
 .button-view {
@@ -116,8 +109,8 @@ tbody tr:hover {
     width: 100%;
   }
 
-  th,
-  td {
-    padding: 0.5em;
-  }
+  // th,
+  // td {
+  //   padding: 0.5em;
+  // }
 }

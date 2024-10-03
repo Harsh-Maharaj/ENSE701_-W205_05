@@ -12,19 +12,46 @@ const NewDiscussion = () => {
 
   const submitNewArticle = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log(
-      JSON.stringify({
-        title,
-        authors,
-        source,
-        publication_year: pubYear,
-        doi,
-        summary,
-        linked_discussion: linkedDiscussion,
-      })
-    );
+  
+    try {
+      const res = await fetch('http://localhost:5000/api/articles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          authors,
+          source,
+          publication_year: pubYear,
+          doi,
+          summary,
+          linked_discussion: linkedDiscussion,
+        }),
+      });
+  
+      // Check if the response is not OK
+      if (!res.ok) {
+        const contentType = res.headers.get('Content-Type');
+        if (contentType && contentType.includes('application/json')) {
+          const errorResponse = await res.json();
+          console.error('Error response from backend:', errorResponse);
+          alert(`Error: ${errorResponse.message}`);
+        } else {
+          console.error('Received HTML response instead of JSON:', await res.text());
+          alert('Server error, received an unexpected HTML response.');
+        }
+      } else {
+        const data = await res.json();
+        console.log('Article submitted:', data);
+      }
+    } catch (error) {
+      console.error('Error submitting article:', error);
+      //alert(`Error submitting article: ${error.message}`);
+    }
   };
+  
+  
 
   // Some helper methods for the authors array
 

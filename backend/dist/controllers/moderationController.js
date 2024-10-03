@@ -1,4 +1,4 @@
-import * as moderationService from '../services/moderationService';
+import * as moderationService from '../services/moderationService.js';
 export const approveArticle = async (req, res) => {
     try {
         const { articleId } = req.body;

@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/userModel'; // Only import the model from userModel.ts
+import User from '../models/userModel.js'; // Only import the model from userModel.ts
 export const signup = async (email, password, role) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ email, password: hashedPassword, role });
