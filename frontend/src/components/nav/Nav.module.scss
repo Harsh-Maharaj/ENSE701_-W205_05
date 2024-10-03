@@ -1,61 +1,77 @@
 .navbar {
-    display: flex;
-    position: relative;
-    top: 0;
-    flex-direction: row;
-    width: 100%;
-    background-color: darkblue;
-    align-items: center;
-    color: aliceblue;
-    font-size: 1.5em;
-    font-weight: bold;
-    transition: top 0.5s;
-    height: fit-content;
-  }
-  
-  .hide {
-    top: -3em;
-  }
-  
-  .navitem {
-    position: relative;
-    padding: 1em;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: default;
-    white-space: nowrap;
-  }
-  
-  .clickable {
-    @extend .navitem;
-    cursor: pointer;
-  }
-  
-  .clickable:hover {
-    backdrop-filter: brightness(50%);
-  }
-  
-  .dropdown_container {
-    visibility: hidden;
-    display: flex;
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-direction: row;
+  width: 100%;
+  background-color: #1e3a8a; /* Use a nicer blue shade */
+  align-items: center;
+  color: #f0f4f8; /* Softer color */
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: top 0.5s, background-color 0.3s;
+  padding: 0.5em 2em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.navitem {
+  padding: 0.75em 1.5em;
+  margin: 0 0.5em;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.hide {
+  top: -4em;
+}
+
+.dropdown_container {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e3a8a;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown_container {
+  visibility: visible;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.end {
+  margin-left: auto;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .navbar {
     flex-direction: column;
-    background-color: darkblue;
-    position: absolute;
-    top: 100%;
-    right: 0;
+    align-items: flex-start;
+    padding: 1em;
   }
-  
-  .dropdown:hover {
-    cursor: pointer;
-    backdrop-filter: brightness(50%);
-  
-    .dropdown_container {
-      visibility: visible;
-    }
+
+  .navitem {
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
   }
-  
-  .end {
-    margin-left: auto;
-  }  
+}
