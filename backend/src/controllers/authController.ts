@@ -7,7 +7,8 @@ export const signup = async (req: Request, res: Response) => {
     const newUser = await authService.signup(email, password, role);
     res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // Corrected error handling
+    res.status(500).json({ message: (error as Error).message });
   }
 };
 
@@ -17,6 +18,7 @@ export const login = async (req: Request, res: Response) => {
     const token = await authService.login(email, password);
     res.status(200).json({ token });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    // Corrected error handling
+    res.status(400).json({ message: (error as Error).message });
   }
 };

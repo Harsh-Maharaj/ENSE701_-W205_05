@@ -7,6 +7,7 @@ export const approveArticle = async (req: Request, res: Response) => {
     const approvedArticle = await moderationService.approveArticle(articleId);
     res.status(200).json({ message: 'Article approved successfully', article: approvedArticle });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // Corrected error handling
+    res.status(500).json({ message: (error as Error).message });
   }
 };

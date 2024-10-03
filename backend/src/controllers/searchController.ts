@@ -7,6 +7,7 @@ export const searchArticles = async (req: Request, res: Response) => {
     const results = await searchService.searchArticles(query);
     res.status(200).json(results);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // Corrected error handling
+    res.status(500).json({ message: (error as Error).message });
   }
 };

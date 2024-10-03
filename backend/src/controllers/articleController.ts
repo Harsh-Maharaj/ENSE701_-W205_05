@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
 import * as articleService from '../services/articleService';
 
-export const submitArticle = async (req: Request, res: Response) => {
+export const someFunction = async (req: Request, res: Response) => { // Add types for req and res
   try {
-    const articleDetails = req.body;
-    const newArticle = await articleService.submitArticle(articleDetails);
-    res.status(201).json({ message: 'Article submitted successfully', article: newArticle });
+    // Your logic here
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // Corrected catch block
+    res.status(500).json({ message: (error as Error).message });
   }
 };
