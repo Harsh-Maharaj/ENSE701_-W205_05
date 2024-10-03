@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import SortableTable from "../../components/table/SortableTable";
 import data from "../../utils/dummydata";
+import styles from "../../styles/Articles.module.scss"; // Import the styles
 
 interface ArticlesInterface {
   id: string;
@@ -29,10 +30,20 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
   ];
 
   return (
-    <div className="container">
-      <h1>Articles Index Page</h1>
-      <p>Page containing a table of articles:</p>
-      <SortableTable headers={headers} data={articles} />
+    <div className={styles.container}>
+      <h1>All Published Articles</h1>
+
+      {/* Search bar */}
+      <input
+        type="text"
+        className={styles.searchBar} // Apply search bar styles
+        placeholder="Type to search by title, author or date..."
+      />
+
+      {/* Table container */}
+      <div className={styles.tableContainer}>
+        <SortableTable headers={headers} data={articles} />
+      </div>
     </div>
   );
 };
@@ -49,7 +60,6 @@ export const getStaticProps: GetStaticProps<ArticlesProps> = async (_) => {
     claim: article.claim,
     evidence: article.evidence,
   }));
-
 
   return {
     props: {

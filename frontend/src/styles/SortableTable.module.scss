@@ -1,0 +1,44 @@
+.sortable-table-container {
+    max-width: 80%;
+    margin: 2em auto;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .sortable-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .sortable-table-container thead {
+    background-color: #1e3a8a;
+    color: #fff;
+  }
+  
+  .sortable-table-container th,
+  .sortable-table-container td {
+    padding: 0.75em;
+    text-align: left;
+    border-bottom: 1px solid #d1d5db;
+  }
+  
+  .sortable-table-container th {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .sortable-table-container th:hover {
+    background-color: #3b82f6;
+  }
+  
+  .sortable-table-container tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  .sortable-table-container tbody tr:hover {
+    background-color: #e5e7eb;
+  }
+  

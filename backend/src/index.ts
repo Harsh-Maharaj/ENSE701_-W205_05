@@ -1,15 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import connectDB from './config/db';
-import authRoutes from './routes/authRoutes';
-import articleRoutes from './routes/articleRoutes';
-import moderationRoutes from './routes/moderationRoutes';
-import searchRoutes from './routes/searchRoutes';
-
 
 // Load environment variables
 import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import articleRoutes from './routes/articleRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import moderationRoutes from './routes/moderationRoutes.js';
+import searchRoutes from './routes/searchRoutes.js';
 dotenv.config(); // Use ES module import for `dotenv`
 
 // Initialize app

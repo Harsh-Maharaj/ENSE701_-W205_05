@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "../../styles/SortableTable.module.scss";
 
 interface SortableTableProps {
   headers: { key: string; label: string }[];
@@ -33,27 +34,29 @@ const SortableTable: React.FC<SortableTableProps> = ({ headers, data }) => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {headers.map((header) => (
-            <th key={header.key} onClick={() => requestSort(header.key)}>
-              {header.label}
-              {sortConfig?.key === header.key ? (sortConfig.direction === "ascending" ? " ▲" : " ▼") : null}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.map((row, i) => (
-          <tr key={i}>
+    <div className={styles["table-container"]}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
             {headers.map((header) => (
-              <td key={header.key}>{row[header.key]}</td>
+              <th key={header.key} onClick={() => requestSort(header.key)}>
+                {header.label}
+                {sortConfig?.key === header.key ? (sortConfig.direction === "ascending" ? " ▲" : " ▼") : null}
+              </th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sortedData.map((row, i) => (
+            <tr key={i}>
+              {headers.map((header) => (
+                <td key={header.key}>{row[header.key]}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
