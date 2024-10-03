@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./HomePage.module.css";
+import PrimarySearchAppBar from '../../components/navbar/PrimarySearchAppBar';
+
 
 // Define the Article interface to match your fetched data
 interface Article {
@@ -45,23 +47,26 @@ export default function HomePage() {
   }
 
   return (
-    <div className={styles.container}>
-      {articles.map((article) => (
-        <div key={article._id} className={styles.card}>
-          <h2>{article.title}</h2>
-          <h4>by {article.author}</h4>
-          <p>{article.description}</p>
-          <p>
-            <strong>Tags:</strong> {article.tags.join(", ")}
-          </p>
-          <p>
-            <strong>Rating:</strong> {article.rating}/5
-          </p>
-          <p>
-            <strong>Date:</strong> {new Date(article.date).toLocaleDateString()}
-          </p>
-        </div>
-      ))}
+    <div>
+      <PrimarySearchAppBar />
+      <div className={styles.container}>
+        {articles.map((article) => (
+          <div key={article._id} className={styles.card}>
+            <h2>{article.title}</h2>
+            <h4>by {article.author}</h4>
+            <p>{article.description}</p>
+            <p>
+              <strong>Tags:</strong> {article.tags.join(", ")}
+            </p>
+            <p>
+              <strong>Rating:</strong> {article.rating}/5
+            </p>
+            <p>
+              <strong>Date:</strong> {new Date(article.date).toLocaleDateString()}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
