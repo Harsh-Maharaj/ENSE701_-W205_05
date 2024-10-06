@@ -23,15 +23,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// backend/src/models/User.ts
 const mongoose_1 = __importStar(require("mongoose"));
-const articleSchema = new mongoose_1.Schema({
-    title: { type: String, required: true },
-    authors: { type: [String], required: true },
-    source: { type: String, required: true },
-    publication_year: { type: Number, required: true },
-    doi: { type: String, required: false },
-    claim: { type: String, required: false },
-    evidence: { type: String, required: false },
-    linked_discussion: { type: String, required: false },
+const UserSchema = new mongoose_1.Schema({
+    username: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    role: { type: String, default: 'user', enum: ['user', 'moderator', 'analyst', 'administrator'] },
 });
-exports.default = mongoose_1.default.model('Article', articleSchema);
+exports.default = mongoose_1.default.model('User', UserSchema);

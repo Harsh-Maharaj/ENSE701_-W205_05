@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/userModel.js'; // Only import the model from userModel.ts
+import User from '../models/User.js'; // Only import the model from userModel.ts
 import { IUser } from '../interfaces/userInterface.js'; // Import the interface from interfaces folder
 
 

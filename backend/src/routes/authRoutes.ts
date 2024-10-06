@@ -1,11 +1,14 @@
-// src/routes/authRoutes.ts
+import { Router } from 'express';
+import { signup, login } from '../controllers/authController';
 
-import express from 'express';
-import { signup, login } from '../controllers/authController.js';
+const router = Router();
 
-const router = express.Router();
+// Use a wrapper function to handle async errors properly
+const asyncHandler = (fn: any) => (req: any, res: any, next: any) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
 
-router.post('/signup', signup);
-router.post('/login', login);
+// Use asyncHandler for both signup and login
+router.post('/signup', asyncHandler(signup));
+router.post('/login', asyncHandler(login));
 
 export default router;
