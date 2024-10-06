@@ -1,7 +1,7 @@
-import { IoMdArrowDropdown } from "react-icons/io";
-import NavBar from "../nav/NavBar"; // Corrected path
-import NavDropdown from "../nav/NavDropDown";
-import NavItem from "../nav/NavItem"; // Corrected path
+import React from "react";
+import NavBar from "./NavBar";
+import NavItem from "./NavItem";
+import NavDropdown from "./NavDropdown";
 import styles from "./Nav.module.scss";
 
 const Navigation = () => {

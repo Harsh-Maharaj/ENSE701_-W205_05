@@ -25,15 +25,11 @@
   margin: 0 0.5em; /* Reduce margin */
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer; /* Make items clickable */
 }
 
-/* Make items clickable */
-.clickable {
-  cursor: pointer;
-}
-
-/* Hover effect */
-.clickable:hover {
+/* Hover effect for nav items */
+.navitem:hover {
   background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
@@ -55,7 +51,12 @@
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   min-width: 180px; /* Reduce dropdown width */
-  z-index: 1000;
+  z-index: 1500; /* Ensure dropdown is above other elements */
+}
+
+/* Dropdown wrapper */
+.dropdown {
+  position: relative; /* Position for dropdown visibility */
 }
 
 /* Hover to show dropdown */
@@ -66,7 +67,7 @@
 }
 
 /* Dropdown links styling */
-.dropdown_container a {
+.dropdown_container .navitem {
   padding: 0.5em 0.75em;
   color: #f0f4f8;
   text-decoration: none;
@@ -75,7 +76,7 @@
 }
 
 /* Hover effect for dropdown links */
-.dropdown_container a:hover {
+.dropdown_container .navitem:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
