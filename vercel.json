@@ -1,0 +1,23 @@
+{
+    "projects": [
+      {
+        "src": "frontend/",
+        "use": "@vercel/next"
+      },
+      {
+        "src": "backend/",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "frontend/$1"
+      }
+    ]
+  }
+  
