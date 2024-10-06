@@ -1,16 +1,21 @@
 import { IoMdArrowDropdown } from "react-icons/io";
-import NavBar from "../nav/NavBar"; // Corrected path
-import NavDropdown from "../nav/NavDropDown";
-import NavItem from "../nav/NavItem"; // Corrected path
+import NavBar from "./NavBar"; // Corrected path
+import NavDropdown from "./NavDropDown"; // Ensure this matches exactly with your file structure
+import NavItem from "./NavItem"; // Corrected path
 import styles from "./Nav.module.scss";
+
+
 
 const Navigation = () => {
   return (
     <NavBar>
+
+      {/* Regular Navigation Items */}
+      <NavItem route="/">SPEED</NavItem>
+
       {/* Regular Navigation Items */}
       <NavItem route="/articles">Articles</NavItem>
-      <NavItem route="/new-article">New Article</NavItem>
-      <NavItem route="/lookup-submission">Lookup Submission</NavItem>
+      <NavItem route="/articles/new">Submit new</NavItem>
       
       {/* Dropdown Example for Admin */}
       <div className={styles.dropdown}>

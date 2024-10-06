@@ -1,7 +1,8 @@
 import React from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
 import NavBar from "./NavBar";
+import NavDropdown from "./NavDropDown"; // Corrected path
 import NavItem from "./NavItem";
-import NavDropdown from "./NavDropdown";
 import styles from "./Nav.module.scss";
 
 const Navigation = () => {
@@ -9,7 +10,7 @@ const Navigation = () => {
     <NavBar>
       {/* Regular Navigation Items */}
       <NavItem route="/articles">Articles</NavItem>
-      <NavItem route="/new-article">New Article</NavItem>
+      <NavItem route="/SubmissionForm.tsx">New Article</NavItem>
       <NavItem route="/lookup-submission">Lookup Submission</NavItem>
       
       {/* Dropdown Example for Admin */}
