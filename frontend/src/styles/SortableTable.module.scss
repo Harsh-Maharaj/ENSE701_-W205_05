@@ -1,63 +1,77 @@
-.sortable-table-container {
-    max-width: 80%;
-    margin: 2em auto;
-    padding: 1.5em;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.table-container {
+    max-width: 1200px;
+    margin: 0 auto; // Centering the table container
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    padding: 1em;
+    background: #ffffff; // White background for clarity
+    border-radius: 8px; // Rounded corners for modern look
+  
+    table {
+      width: 100%;
+      border-collapse: collapse; // Ensures clean table design
+      text-align: left;
+      font-family: 'Poppins', sans-serif; // Ensures text is visually appealing
+  
+      thead {
+        background-color: #1e3a8a; // Dark blue background for the header
+        color: #ffffff; // White text for contrast
+  
+        th {
+          padding: 12px 15px; // Sufficient padding for space
+          font-weight: bold; // Bold text for headers
+          border-bottom: 2px solid #f0f4f8; // White line for separation from body
+          cursor: pointer; // Indicates that headers are clickable
+          position: relative; // Necessary for absolute positioning of sort icons
+  
+          &:hover {
+            background-color: #3b82f6; // Lighter blue on hover
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background-color: #f0f4f8; // Light gray for odd rows, improves readability
+          }
+  
+          &:hover {
+            background-color: #e2e8f0; // Slightly darker on hover
+          }
+  
+          td {
+            padding: 12px 15px; // Consistent padding with headers
+            border-bottom: 1px solid #ddd; // Subtle border for separation between rows
+          }
+        }
+      }
+    }
+  
+    .rate-link {
+      color: #1e3a8a; // Dark blue to match the header, for consistency
+      text-decoration: none; // No underline
+      font-weight: bold; // Bold to make it stand out as a clickable action
+  
+      &:hover {
+        text-decoration: underline; // Underline on hover to indicate interactivity
+      }
+    }
   }
   
-  .sortable-table-container table {
-    width: 100%;
-    border-collapse: collapse;
+  // Additional styles for responsive behavior
+  @media (max-width: 768px) {
+    .table-container {
+      padding: 0.5em;
+      thead {
+        th {
+          padding: 8px 10px; // Smaller padding on smaller screens
+        }
+      }
+      tbody {
+        td {
+          padding: 8px 10px; // Consistent with header padding
+        }
+      }
+    }
   }
   
-  .sortable-table-container thead {
-    background-color: #1e3a8a; /* Dark Blue */
-    color: #fff;
-  }
-  
-  .sortable-table-container th,
-  .sortable-table-container td {
-    padding: 0.75em;
-    text-align: left;
-    border-bottom: 1px solid #d1d5db;
-  }
-  
-  .sortable-table-container th {
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .sortable-table-container th:hover {
-    background-color: #3b82f6; /* Hover Light Blue */
-  }
-  
-  .sortable-table-container tbody tr:nth-child(even) {
-    background-color: #f9fafb; /* Light Gray for even rows */
-  }
-  
-  .sortable-table-container tbody tr:hover {
-    background-color: #e5e7eb; /* Row Hover */
-  }
-  
-  /* Styling for the Rate button */
-  .rate-link {
-    background-color: #1e3a8a; /* Dark Blue background */
-    color: #fff; /* White text */
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .rate-link:hover {
-    background-color: #3b82f6; /* Lighter blue on hover */
-    color: #fff;
-  }
