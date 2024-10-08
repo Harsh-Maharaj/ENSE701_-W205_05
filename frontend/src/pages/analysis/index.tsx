@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Article } from '../../components/Article'; 
-import styles from '../../styles/Form.module.scss';
+import styles from '../../styles/Analysis.module.scss';
 
 const AnalysisPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Ensure all form inputs have initial values to avoid uncontrolled component issues
-  const [sePractice, setSePractice] = useState(''); // Initialize with an empty string
-  const [claim, setClaim] = useState(''); // Initialize with an empty string
-  const [evidenceResult, setEvidenceResult] = useState(''); // Initialize with an empty string
-  const [researchType, setResearchType] = useState(''); // Initialize with an empty string
-  const [participants, setParticipants] = useState(''); // Initialize with an empty string
-  const [researchEvidenceType, setResearchEvidenceType] = useState(''); // Initialize with an empty string
-  const [keyFindings, setKeyFindings] = useState(''); // Initialize with an empty string
-  const [peerReviewed, setPeerReviewed] = useState(false); // Initialize with false for checkbox
-  const [publicationType, setPublicationType] = useState(''); // Initialize with an empty string
+  const [sePractice, setSePractice] = useState('');
+  const [claim, setClaim] = useState('');
+  const [evidenceResult, setEvidenceResult] = useState('');
+  const [researchType, setResearchType] = useState('');
+  const [participants, setParticipants] = useState('');
+  const [researchEvidenceType, setResearchEvidenceType] = useState('');
+  const [keyFindings, setKeyFindings] = useState('');
+  const [peerReviewed, setPeerReviewed] = useState(false);
+  const [publicationType, setPublicationType] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3001/api/analysis')
@@ -58,20 +57,19 @@ const AnalysisPage = () => {
 
       const response = await fetch('http://localhost:3001/api/analysis');
       const updatedArticles = await response.json();
-      setArticles(updatedArticles); // Update the list
+      setArticles(updatedArticles);
     } catch (error) {
       console.error('Error analyzing article:', error);
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Analysis</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Analysis</h1>
 
-      {/* Input fields for new analysis data */}
-      <div>
+      <div className={styles.form}>
         <input
           type="text"
           placeholder="SE Practice"
@@ -121,15 +119,17 @@ const AnalysisPage = () => {
           onChange={(e) => setKeyFindings(e.target.value)}
           className={styles.formItem}
         />
-        <label>
-          <input
-            type="checkbox"
-            checked={peerReviewed}
-            onChange={() => setPeerReviewed(!peerReviewed)}
-          
-          />
-          Peer Reviewed
-        </label>
+        <div className={styles.checkboxContainer}>
+          <label className={styles.label}>
+            Peer Reviewed
+            <input
+              type="checkbox"
+              checked={peerReviewed}
+              onChange={() => setPeerReviewed(!peerReviewed)}
+              className={styles.checkbox}
+            />
+          </label>
+        </div>
         <input
           type="text"
           placeholder="Publication Type"
@@ -142,7 +142,7 @@ const AnalysisPage = () => {
       {articles.length === 0 ? (
         <p>No articles awaiting analysis.</p>
       ) : (
-        <table className="table-auto w-full mt-4">
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Title</th>
@@ -159,7 +159,7 @@ const AnalysisPage = () => {
                 <td>{article.status}</td>
                 <td>
                   <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded"
+                    className={styles.button}
                     onClick={() => handleAnalyze(article._id || article.id)}
                   >
                     Mark as Analyzed

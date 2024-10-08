@@ -1,0 +1,111 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 30em;
+    margin: 0 auto; // Centers the form horizontally
+    align-items: center;
+  }
+  
+  .formItem {
+    padding: 1em;
+    margin: 1em 0;
+    width: 80%; 
+  }
+  
+  .formTextArea {
+    @extend .formItem;
+    min-height: 8em;
+  }
+  
+  .arrayItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+  }
+  
+  .buttonItem {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5em;
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modalContent h2 {
+    margin-top: 0;
+  }
+  
+  .modalContent button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #f1f1f1; // Change to a lighter shade on hover, or adjust as needed
+    }
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+  
+    th {
+      background-color: #f9f9f9;
+      color: rgb(8, 8, 8);
+      font-size: 1.25em;
+    }
+  
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  
+    td {
+      transition: background-color 0.3s;
+    }
+  
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
