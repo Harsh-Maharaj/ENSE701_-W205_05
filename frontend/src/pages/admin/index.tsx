@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Article } from '../../components/Article'; // Adjust the import path
+import styles from '../../styles/Admin.module.scss';
 
 const AdminPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -40,15 +41,15 @@ const AdminPage = () => {
     }
   };
 
-  if (loading) return <div>Loading articles...</div>;
+  if (loading) return <div className={styles.loading}>Loading articles...</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Admin Dashboard</h1>
       {articles.length === 0 ? (
-        <p>No articles to display.</p>
+        <p className={styles.noArticles}>No articles to display.</p>
       ) : (
-        <table className="table-auto w-full">
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Title</th>
@@ -63,7 +64,7 @@ const AdminPage = () => {
                 <td>{article.authors.join(', ')}</td>
                 <td>
                   <button
-                    className="bg-red-500 text-white px-2 py-1 rounded"
+                    className={styles.deleteButton}
                     onClick={() => handleDelete(article._id || article.id)}
                   >
                     Delete
