@@ -1,0 +1,116 @@
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 2em;
+    text-align: center;
+    background-color: #f0f4f8; /* Light grey-blue for better contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      margin-bottom: 1.5em;
+      color: #1e3a8a; /* Title color */
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+  
+    p {
+      margin-bottom: 1.5em;
+      font-size: 1.2em;
+      color: #374151;
+    }
+  }
+  
+  /* Table Container */
+  .tableContainer {
+    overflow-x: auto;
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: #ffffff; /* White for table container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styles */
+  /* Refactor the global styles to local classes */
+  .articleTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9fafb;
+  }
+  
+  .articleTable thead {
+    background-color: #1e3a8a; /* Dark blue */
+    color: #ffffff;
+  }
+  
+  .articleTable th, .articleTable td {
+    padding: 1em;
+    text-align: left;
+    border-bottom: 1px solid #d1d5db;
+  }
+  
+  .articleTable th:hover {
+    background-color: #3b82f6; /* Lighter blue on hover */
+  }
+  
+  .articleTable tbody tr:nth-child(even) {
+    background-color: #f3f4f6; /* Alternate row color */
+  }
+  
+  .articleTable tbody tr:hover {
+    background-color: #e5e7eb; /* Row hover effect */
+  }
+  
+  
+  /* View Button Styling */
+  .button-view {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-view:hover {
+    background-color: #388e3c;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 1px solid #d1d5db;
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  .search-bar:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1em;
+    }
+  
+    .search-bar {
+      width: 100%;
+    }
+  
+    // th,
+    // td {
+    //   padding: 0.5em;
+    // }
+  }
