@@ -3,11 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom cursive font class */
-.custom-cursive-font {
-  font-family: "Cedarville Cursive", cursive;
+/* Global Font Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f9fc; /* Light background for a modern look */
+  color: #333; /* Dark grey for easy readability */
+  margin: 0;
+  padding: 0;
 }
 
+/* Custom cursive font for special elements */
+.custom-cursive-font {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 1.8rem;
+  color: #5a45ff; /* Soft purple for a nice accent */
+}
+
+/* Highlighted Text with Gradient */
 .highlighted-text {
   background: linear-gradient(
       0deg,
@@ -19,25 +31,35 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.5rem; /* A bit larger for emphasis */
+  display: inline-block;
+  padding: 0.2em;
 }
 
-/* Container with blur effect and gradient border */
+/* Frosted Glass Container with Blur and Gradient Border */
 .frosted-container {
   isolation: isolate;
   overflow: hidden;
   align-items: center;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border-radius: 32px;
-  box-shadow: inset 0 -7px 11px rgba(164, 143, 255, 0.12);
-  display: flex;
-  position: relative;
-  width: -moz-max-content;
-  width: max-content;
-  transition: box-shadow 0.45s cubic-bezier(0.6, 0.6, 0, 1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: inset 0 -5px 12px rgba(164, 143, 255, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.6); /* Frosted effect */
+  transition: box-shadow 0.3s ease-in-out;
+  width: 100%;
+  max-width: 1200px;
+  margin: 1.5rem auto; /* Auto margin to center */
 }
 
-/* Primary button style */
+/* Hover Effect for Frosted Container */
+.frosted-container:hover {
+  box-shadow: inset 0 -8px 14px rgba(164, 143, 255, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button with Gradient and Shadow */
 .main-button {
   background: linear-gradient(
       180deg,
@@ -45,10 +67,17 @@
       rgba(60, 8, 126, 0.32) 100%
     ),
     rgba(113, 47, 255, 0.12);
-  box-shadow: inset 0 0 12px rgba(191, 151, 255, 0.24);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(113, 47, 255, 0.3); /* Soft shadow for depth */
+  border: none;
 }
 
-/* Hover effect for primary button */
+/* Hover Effect for Primary Button */
 .main-button:hover {
   background: linear-gradient(
       180deg,
@@ -56,10 +85,10 @@
       rgba(60, 8, 126, 0.42) 100%
     ),
     rgba(113, 47, 255, 0.24);
-  box-shadow: inset 0 0 12px rgba(191, 151, 255, 0.44);
+  box-shadow: 0 6px 15px rgba(113, 47, 255, 0.5); /* Stronger shadow on hover */
 }
 
-/* Hide scrollbar for IE, Edge, Firefox */
+/* Smooth Scroll with Hover Animation */
 .hidden-scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -68,12 +97,43 @@
   display: none;
 }
 
-/* Smooth scrolling behavior */
+/* Subtle Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+/* Global Styling for Links */
+a {
+  color: #5a45ff; /* Stylish purple for links */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
 
+a:hover {
+  color: #1e3a8a; /* Darker purple for hover */
+}
 
+/* Modern Card Style */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
 
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
 
+/* Responsive Layout for Cards */
+@media (max-width: 768px) {
+  .frosted-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}

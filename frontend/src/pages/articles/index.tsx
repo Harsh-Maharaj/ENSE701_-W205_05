@@ -38,8 +38,7 @@ const headers: { key: string; label: string }[] = [
 
   return (
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">Articles Index Page</h1>
-    <p>Page containing a table of articles:</p>
+    <h1 className="text-2xl font-bold mb-4">Published Articles</h1>
 
     {/* Table to display articles */}
     <table className={styles.table}>
