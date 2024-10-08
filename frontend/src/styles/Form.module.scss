@@ -1,31 +1,107 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    max-width: 30em;
+  display: flex;
+flex-direction: column;
+max-width: 30em;
+margin: 0 auto; /* This will center the form horizontally */
+align-items: center; 
+}
+.formItem {
+padding: 1em;
+margin: 1em 0;
+width: 80%; 
+/*flex-grow: 1;*/
+}
+.formTextArea {
+@extend .formItem;
+min-height: 8em;
+}
+.arrayItem {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: stretch;
+}
+.buttonItem {
+width: 3rem;
+height: 3rem;
+flex-grow: 0;
+font-size: 1.5em;
+}
+
+.modalOverlay {
+  position: fixed;  // Fixed position to cover the entire screen
+  top: 0;  // Align to the top
+  left: 0;  // Align to the left
+  width: 100%;  // Full width
+  height: 100%;  // Full height
+  background-color: rgba(0, 0, 0, 0.7);  // Semi-transparent background
+  display: flex;  // Use flexbox for centering
+  justify-content: center;  // Center horizontally
+  align-items: center;  // Center vertically
+  z-index: 1000;  // Higher z-index to overlay on top of content
+}
+
+.modalContent {
+  background-color: white;  // White background for modal
+  border-radius: 8px;  // Rounded corners
+  padding: 20px;  // Padding for content
+  width: 90%;  // Responsive width
+  max-width: 600px;  // Max width for larger screens
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  // Shadow effect
+}
+.modalContent h2 {
+  margin-top: 0;  // Remove default margin on top
+}
+
+.modalContent button {
+  background-color: #dc3545;  // Button background color
+  color: white;  // Button text color
+  padding: 8px 12px;  // Padding for button
+  border: none;  // Remove border
+  border-radius: 4px;  // Rounded corners
+  cursor: pointer;  // Pointer cursor on hover
+  transition: background-color 0.3s;  // Smooth transition for hover effect
+
+  &:hover {
+    background-color: #f1f1f1;  // Darker shade on hover
   }
-  
-  .formItem {
-    padding: 1em;
-    margin: 1em 0;
-    flex-grow: 1;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
   }
-  
-  .formTextArea {
-    @extend .formItem;
-    min-height: 8em;
+
+  th {
+    background-color:  #f9f9f9;  // Background color for header
+    color: rgb(8, 8, 8);  // Text color for header
+    font-size: 1.25em;  //Headers font size
   }
-  
-  .arrayItem {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: stretch;
+
+  tr:hover {
+    background-color: #f1f1f1;  // Change color on row hover
   }
-  
-  .buttonItem {
-    width: 3rem;
-    height: 3rem;
-    flex-grow: 0;
-    font-size: 1.5em;
+
+  td {
+    transition: background-color 0.3s;  // Smooth transition for background color
   }
-  
+
+  button {
+    background-color: #007BFF;  // Button background color
+    color: white;  // Button text color
+    padding: 8px 12px;  // Padding for the button
+    border: none;  //No border
+    border-radius: 4px;  // Rounded corners
+    cursor: pointer;  // Change cursor on hover
+    transition: background-color 0.3s;  // Smooth transition for hover effect
+
+    &:hover {
+      background-color: #0056b3;  // Darker shade on hover
+    }
+  }
+}

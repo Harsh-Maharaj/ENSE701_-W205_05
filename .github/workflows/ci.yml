@@ -1,52 +1,60 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
+      - main
       - development
-      - feature/*
   pull_request:
     branches:
       - main
       - development
 
 jobs:
-  backend-build:
+  backend:
     runs-on: ubuntu-latest
-    name: Backend Build and Test
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js for Backend
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node-version }}
 
-      - name: Install Backend Dependencies
-        working-directory: ./backend
-        run: npm install
+      - name: Install dependencies for backend
+        run: |
+          cd ./backend
+          npm install
 
-      - name: Run Backend Tests
-        working-directory: ./backend
-        run: npm test
+      - name: Run backend tests
+        run: |
+          cd ./backend
+          npm test
 
-  frontend-build:
+  frontend:
     runs-on: ubuntu-latest
-    name: Frontend Build and Test
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js for Frontend
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node-version }}
 
-      - name: Install Frontend Dependencies
-        working-directory: ./frontend
-        run: npm install
-
-      - name: Run Frontend Tests
-        working-directory: ./frontend
-        run: npm test
+      - name: Install dependencies for frontend
+        run: |
+          cd assignmentB/frontend
+          npm install
+ # Skip the test step, need to add test script to package.js later when i need to test the frontend.
+      # - name: Run frontend tests
+      #   run: |
+      #     cd assignmentB/frontend
+      #     npm test

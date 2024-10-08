@@ -1,71 +1,53 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import styles from "../../styles/SortableTable.module.scss";
+import React, { useState } from 'react';
 
 interface SortableTableProps {
-  headers: { key: string; label: string }[];
+  headers: { key: string; label: string; render?: (row: any) => JSX.Element }[];
   data: any[];
+  className?: string; 
 }
 
-const SortableTable: React.FC<SortableTableProps> = ({ headers, data }) => {
-  const [sortConfig, setSortConfig] = useState<{ key: string; direction: string } | null>(null);
+const SortableTable: React.FC<SortableTableProps> = ({ headers, data, className }) => {
+  const [sortKey, setSortKey] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [sortedData, setSortedData] = useState(data);
 
-  const sortedData = React.useMemo(() => {
-    let sortableData = [...data];
-    if (sortConfig !== null) {
-      sortableData.sort((a, b) => {
-        if (a[sortConfig.key] < b[sortConfig.key]) {
-          return sortConfig.direction === "ascending" ? -1 : 1;
-        }
-        if (a[sortConfig.key] > b[sortConfig.key]) {
-          return sortConfig.direction === "ascending" ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-    return sortableData;
-  }, [data, sortConfig]);
+  const handleSort = (key: string) => {
+    const order: 'asc' | 'desc' = sortOrder === 'asc' ? 'desc' : 'asc';
+    const sorted = [...data].sort((a, b) => {
+      if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
+      if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
+      return 0;
+    });
 
-  const requestSort = (key: string) => {
-    let direction = "ascending";
-    if (sortConfig && sortConfig.key === key && sortConfig.direction === "ascending") {
-      direction = "descending";
-    }
-    setSortConfig({ key, direction });
+    setSortKey(key);
+    setSortOrder(order);
+    setSortedData(sorted);
   };
 
   return (
-    <div className={styles["table-container"]}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            {headers.map((header) => (
-              <th key={header.key} onClick={() => requestSort(header.key)}>
-                {header.label}
-                {sortConfig?.key === header.key ? (sortConfig.direction === "ascending" ? " ▲" : " ▼") : null}
-              </th>
-            ))}
-            {/* Add a new header for the rate button */}
-            <th>Rate</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedData.map((row, i) => (
-            <tr key={i}>
-              {headers.map((header) => (
-                <td key={header.key}>{row[header.key]}</td>
-              ))}
-              {/* Use row._id to create the dynamic route */}
-              <td>
-                <Link href={`/rate-article/${row._id}`}>
-                  <a className={styles["rate-link"]}>Rate</a> {/* Link to the article's dynamic page */}
-                </Link>
-              </td>
-            </tr>
+    <table className={className}> {/* Apply the className prop */}
+      <thead>
+        <tr>
+          {headers.map((header) => (
+            <th key={header.key} onClick={() => handleSort(header.key)}>
+              {header.label}
+              {sortKey === header.key ? (sortOrder === 'asc' ? ' 🔼' : ' 🔽') : ''}
+            </th>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </tr>
+      </thead>
+      <tbody>
+        {sortedData.map((row, i) => (
+          <tr key={i}>
+            {headers.map((header) => (
+              <td key={header.key}>
+                {header.render ? header.render(row) : row[header.key]} {/* Custom render for actions */}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

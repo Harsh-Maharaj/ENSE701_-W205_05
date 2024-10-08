@@ -1,0 +1,71 @@
+// src/components/articleDetails/articleDetails.module.scss
+
+.modalBackdrop {
+    position: fixed;  // Fixed positioning to cover the entire screen
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);  // Semi-transparent background
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;  // Ensure it's above other content
+}
+
+.modalContent {
+    position: relative;  // Add this line
+    background-color: white;  // White background for the modal
+    border-radius: 15px;
+    padding: 20px;
+    width: 600px;  // Set your desired width
+    max-height: 80%;  // Limit max height to prevent overflow
+    overflow-y: auto;  // Enable vertical scrolling if content is too tall
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  // Add some shadow for depth
+}
+
+.closeButton {
+    position: absolute;  // Position the close button
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;  // Change cursor to pointer
+    color: #e74c3c;  // Close button color
+}
+  
+  .articleTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .articleAuthors, .articleSource, .articlePubYear, .articleDoi {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .articleSection {
+    margin-top: 15px;
+  }
+  
+  .articleSectionTitle, .articleStatus {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .articleText {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .doiLink {
+    color: #3498db;  // Change this to your desired link color
+  }
+  
+  .statusText {
+    font-weight: bold;  // Make status text bold
+  }
+  
