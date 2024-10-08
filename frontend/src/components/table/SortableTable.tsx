@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "../../styles/SortableTable.module.scss";
 
 interface SortableTableProps {
@@ -44,6 +45,8 @@ const SortableTable: React.FC<SortableTableProps> = ({ headers, data }) => {
                 {sortConfig?.key === header.key ? (sortConfig.direction === "ascending" ? " ▲" : " ▼") : null}
               </th>
             ))}
+            {/* Add a new header for the rate button */}
+            <th>Rate</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +55,12 @@ const SortableTable: React.FC<SortableTableProps> = ({ headers, data }) => {
               {headers.map((header) => (
                 <td key={header.key}>{row[header.key]}</td>
               ))}
+              {/* Use row._id to create the dynamic route */}
+              <td>
+                <Link href={`/rate-article/${row._id}`}>
+                  <a className={styles["rate-link"]}>Rate</a> {/* Link to the article's dynamic page */}
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
