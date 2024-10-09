@@ -18,7 +18,7 @@ async function bootstrap() {
     }
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({ origin: true, credentials: true });
-    const port = process.env.PORT || 3001;
+    const port = process.env.PORT || 8082;
     await app.listen(port, () => common_1.Logger.log(`Server running on port ${port}`));
 }
 bootstrap();
