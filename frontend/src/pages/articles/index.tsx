@@ -3,31 +3,30 @@ import { useState } from 'react';
 import axios from 'axios';
 import SortableTable from '../../components/table/SortableTable';  
 import { Article } from '../../components/Article';  
-import styles from '../../styles/Form.module.scss';
-// Define props type for articles
+import styles from '../../styles/ArticleNew.module.scss';
+
 type ArticlesProps = {
   articles: Article[];
 };
 
-// Define the Articles page component
 const Articles: NextPage<ArticlesProps> = ({ articles }) => {
-  // State to handle the selected article for viewing
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  // Define the headers for the table
- // Define the headers for the table
-const headers: { key: string; label: string }[] = [
-  { key: 'title', label: 'Title' },
-  { key: 'authors', label: 'Authors' },
-  { key: 'source', label: 'Source' },
-  { key: 'pubyear', label: 'Publication Year' },
-  { key: 'doi', label: 'DOI' },
-  { key: 'status', label: 'Status' },
-  { key: 'view', label: 'Actions' },  // Allow 'view' as a custom key
-];
+  const headers = [
+    { key: 'title', label: 'Title' },
+    { key: 'authors', label: 'Authors' },
+    { key: 'source', label: 'Source' },
+    { key: 'pubyear', label: 'Publication Year' },
+    { key: 'doi', label: 'DOI' },
+    { key: 'status', label: 'Status' },
+    { key: 'view', label: 'Actions', render: (article: Article) => (
+        <button onClick={() => handleViewClick(article)} className={styles.button}>
+          View
+        </button>
+      )
+    }
+  ];
 
-
-  // Handle the view button click
   const handleViewClick = (article: Article) => {
     setSelectedArticle(article);
   };
@@ -38,39 +37,17 @@ const headers: { key: string; label: string }[] = [
 
   return (
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">Published Articles</h1>
+      <h1 className="text-2xl font-bold mb-4">Published Articles</h1>
 
-    {/* Table to display articles */}
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          {headers.map((header) => (
-            <th key={header.key}>{header.label}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {articles.map((article) => (
-          <tr key={article.id}>
-            <td>{article.title}</td>
-            <td>{article.authors.join(', ')}</td>
-            <td>{article.source}</td>
-            <td>{article.pubyear}</td>
-            <td>{article.doi}</td>
-            <td>{article.status}</td>
-            <td>
-              <button onClick={() => handleViewClick(article)}>
-                View
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-      {/* Modal or section to display selected article details */}
+      <SortableTable 
+        headers={headers} 
+        data={articles}
+        className={styles.table}
+      />
+
       {selectedArticle && (
-         <div className={styles.modalOverlay} onClick={handleClose}>
-    <div className={styles.modalContent}>
+        <div className={styles.modalOverlay} onClick={handleClose}>
+          <div className={styles.modalContent}>
             <h2 className="text-2xl font-bold mb-4">Article Details</h2>
             <p><strong>Title:</strong> {selectedArticle.title}</p>
             <p><strong>Authors:</strong> {selectedArticle.authors.join(', ')}</p>
@@ -90,9 +67,8 @@ const headers: { key: string; label: string }[] = [
             <p><strong>Peer Reviewed:</strong> {selectedArticle.peerReviewed}</p>
             <p><strong>Publication Type:</strong> {selectedArticle.publicationType}</p>
             
-            <button
-              className="bg-red-500 text-white px-4 py-2 mt-4 rounded hover:bg-red-600"
-              onClick={handleClose}>Close</button>
+            <button className="bg-red-500 text-white px-4 py-2 mt-4 rounded hover:bg-red-600"
+                    onClick={handleClose}>Close</button>
           </div>
         </div>
       )}
@@ -100,14 +76,11 @@ const headers: { key: string; label: string }[] = [
   );
 };
 
-// Server-side rendering method to fetch articles
 export const getServerSideProps: GetServerSideProps<ArticlesProps> = async () => {
   try {
-    const response = await axios.get('http://localhost:3001/api/articles');  // API call to fetch articles
-
-    // Map backend _id to id and include additional fields
+    const response = await axios.get('http://localhost:3001/api/articles');
     const articles = response.data.map((article: any) => ({
-      id: article._id,  // Map _id to id for frontend consistency
+      id: article._id,
       title: article.title || '',
       authors: article.authors || [],
       source: article.source || '',
@@ -126,19 +99,10 @@ export const getServerSideProps: GetServerSideProps<ArticlesProps> = async () =>
       peerReviewed: article.peerReviewed ? 'Yes' : 'No',
       publicationType: article.publicationType || '',
     }));
-
-    return {
-      props: {
-        articles,
-      },
-    };
-  } catch (error) {
+    return { props: { articles } };
+  } catch ( error ) {
     console.error('Error fetching articles:', error);
-    return {
-      props: {
-        articles: [],
-      },
-    };
+    return { props: { articles: [] } };
   }
 };
 

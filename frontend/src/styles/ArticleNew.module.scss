@@ -1,0 +1,111 @@
+/* Table Container Styles */
+.tableContainer {
+  width: 90%; /* Adjust width to fit your site's design */
+  max-width: 1100px; /* Maximum width to prevent overly wide tables */
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #ffffff; /* White background for better contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures shadows and borders inside are not cut off */
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9fafb;
+  margin-top: 1.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+  background-color: #1e3a8a; /* Dark blue for the header */
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 1.2em;
+  text-align: left;
+  border-bottom: 1px solid #d1d5db;
+  font-size: 1.1em;
+}
+
+.table th {
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.table th:hover {
+  background-color: #3b82f6; /* Lighter blue on hover */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f3f4f6; /* Alternate row color */
+}
+
+.table tbody tr:hover {
+  background-color: #e5e7eb; /* Hover effect on table rows */
+}
+
+.table button {
+  background-color: #4caf50; /* Green button */
+  color: white;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.table button:hover {
+  background-color: #388e3c;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent h2 {
+  margin-top: 0; /* Remove default margin on top */
+  font-size: 1.8em;
+  color: #1e3a8a;
+}
+
+.modalContent button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modalContent button:hover {
+  background-color: #c82333;
+}

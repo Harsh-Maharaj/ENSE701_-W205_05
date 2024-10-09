@@ -12,6 +12,7 @@ import React from "react";
  *********************************************/
 import styles from "./Nav.module.scss";
 
+
 /*********************************************
  * type Props = {}: Think of this as creating a template or a form that says "here’s what we expect for this component."
  * children: React.ReactNode: This part says, "We expect the children prop to be anything that React can show on the screen, whether it’s text, HTML, or other components."
