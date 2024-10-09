@@ -1,8 +1,7 @@
-// src/pages/moderation/index.tsx
-
 import { useEffect, useState } from 'react';
 import { Article } from '../../components/Article';  // Adjust the import path if needed
 import { ArticleDetail } from '@/components/articleDetails/articleDetails';
+import styles from '../../styles/Admin.module.scss'; // Import your SCSS module for styling
 
 const ModerationPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -69,15 +68,16 @@ const ModerationPage = () => {
       });
   };
 
-  if (loading) return <div>Loading...</div>;
+  // Display loading screen while data is fetched
+  if (loading) return <div className={styles.loading}>Loading...</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Moderation</h1>
+    <div className={`${styles.container} mx-auto p-4`}> {/* Apply the container style */}
+      <h1 className={styles['page-title']}>Moderation</h1> {/* Add page-title class to style the heading */}
       {articles.length === 0 ? (
-        <p>No articles pending moderation.</p>
+        <p className={styles['centered-text']}>No articles pending moderation.</p>
       ) : (
-        <table className="table-auto w-full">
+        <table className={`${styles.table} table-auto w-full`}> {/* Use table style from SCSS */}
           <thead>
             <tr>
               <th>Title</th>
@@ -93,13 +93,13 @@ const ModerationPage = () => {
                 <td>{article.authors.join(', ')}</td>
                 <td>
                   <button
-                    className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                    className={styles['button-approve']} // Use button-approve class from SCSS
                     onClick={() => handleModeration(article.id!, 'moderated')}
                   >
                     Approve
                   </button>
                   <button
-                    className="bg-red-500 text-white px-2 py-1 rounded"
+                    className={styles['button-reject']} // Use button-reject class from SCSS
                     onClick={() => handleModeration(article.id!, 'rejected')}
                   >
                     Reject
@@ -107,8 +107,8 @@ const ModerationPage = () => {
                 </td>
                 <td>
                   <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded"
-                    onClick={() => handleCheck(article.id!)} // Check button logic
+                    className={styles['button-check']} // Use button-check class from SCSS
+                    onClick={() => handleCheck(article.id!)}
                   >
                     Check
                   </button>
