@@ -1,2 +1,12 @@
 .vercel
 frontend/public/background.png
+*.json
+*.json
+*.json
+backend/node_modules/.package-lock.json
+backend/node_modules/@mongodb-js/saslprep/package.json
+*.json
+backend/package-lock.json
+/backend/node_modules
+/backend
+/backend/node_modules
