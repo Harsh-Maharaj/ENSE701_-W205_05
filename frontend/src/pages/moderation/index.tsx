@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Article } from '../../components/Article';  // Adjust the import path if needed
 import { ArticleDetail } from '@/components/articleDetails/articleDetails';
-import styles from '../../styles/Admin.module.scss'; // Import your SCSS module for styling
+import styles from '../../styles/Moderation.module.scss'; // Import your SCSS module for styling
 
 const ModerationPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
