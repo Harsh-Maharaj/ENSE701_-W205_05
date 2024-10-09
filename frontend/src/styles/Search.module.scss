@@ -1,0 +1,97 @@
+/* General Container Styling */
+.container {
+    max-width: 900px; /* Increased width for better spacing */
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for Search Input and Buttons */
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Added gap for spacing */
+    margin-top: 20px;
+  }
+  
+  .search-input {
+    padding: 10px 15px; /* Adjusted padding for better text visibility */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width of the space */
+    max-width: 300px; /* Limit max width for aesthetics */
+  }
+  
+  .search-button, .clear-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    background-color: #007BFF; /* Standard blue for search */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .clear-button {
+    background-color: #FF4136; /* Bright red for clear */
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .clear-button:hover {
+    background-color: #c2302a; /* Darker red on hover */
+  }
+  
+  /* Enhanced Table Styling */
+  .table-auto {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .table-auto th, .table-auto td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table-auto th {
+    background-color: #4CAF50; /* Green for headers */
+    color: white;
+  }
+  
+  .table-auto tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light gray for odd rows for better readability */
+  }
+  
+  .table-auto tr:hover {
+    background-color: #eef; /* Light blue on hover for row highlight */
+  }
+  
+  /* Filter Select Styling */
+  .filter-select {
+    padding: 8px 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa; /* Slight off-white background */
+  }
+  
+  /* Loading and Feedback Messages */
+  .loading, .no-results {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333; /* Darker text for better readability */
+  }
+  

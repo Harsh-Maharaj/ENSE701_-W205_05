@@ -1,6 +1,7 @@
 import { IoMdArrowDropdown } from "react-icons/io";
 import NavBar from "./nav/NavBar";
-import NavDropdown from "./nav/NavDropDown"; // Match the actual casing
+import NavDropdown from "./nav/NavDropdown";
+
 import NavItem from "./nav/NavItem"; // Fix spelling: NavItem should have an uppercase "I"
 import NotificationBadge from "../components/notification/NotificationBadge"; // Import the new notification component
 import { useEffect, useState } from "react";

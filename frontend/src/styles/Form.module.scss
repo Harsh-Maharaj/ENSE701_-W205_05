@@ -1,108 +1,107 @@
-/* Table Styles */
-.tableContainer {
-  margin: 2em auto;
-  padding: 2em;
-  background-color: #ffffff; /* White background for the table container */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #f9fafb;
-  margin-top: 1.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.table thead {
-  background-color: #1e3a8a; /* Dark blue for the header */
-  color: white;
-}
-
-.table th,
-.table td {
-  padding: 1.2em;
-  text-align: left;
-  border-bottom: 1px solid #d1d5db;
-  font-size: 1.1em;
-}
-
-.table th {
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-}
-
-.table th:hover {
-  background-color: #3b82f6; /* Lighter blue on hover */
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #f3f4f6; /* Alternate row color */
-}
-
-.table tbody tr:hover {
-  background-color: #e5e7eb; /* Hover effect on table rows */
-}
-
-.table button {
-  background-color: #4caf50; /* Green button */
-  color: white;
-  padding: 0.6em 1.2em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-  font-weight: 600;
-}
-
-.table button:hover {
-  background-color: #388e3c;
-}
-
-/* Modal Overlay */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+.form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+flex-direction: column;
+max-width: 30em;
+margin: 0 auto; /* This will center the form horizontally */
+align-items: center; 
+}
+.formItem {
+padding: 1em;
+margin: 1em 0;
+width: 80%; 
+/*flex-grow: 1;*/
+}
+.formTextArea {
+@extend .formItem;
+min-height: 8em;
+}
+.arrayItem {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: stretch;
+}
+.buttonItem {
+width: 3rem;
+height: 3rem;
+flex-grow: 0;
+font-size: 1.5em;
 }
 
-/* Modal Content */
+.modalOverlay {
+  position: fixed;  // Fixed position to cover the entire screen
+  top: 0;  // Align to the top
+  left: 0;  // Align to the left
+  width: 100%;  // Full width
+  height: 100%;  // Full height
+  background-color: rgba(0, 0, 0, 0.7);  // Semi-transparent background
+  display: flex;  // Use flexbox for centering
+  justify-content: center;  // Center horizontally
+  align-items: center;  // Center vertically
+  z-index: 1000;  // Higher z-index to overlay on top of content
+}
+
 .modalContent {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;  // White background for modal
+  border-radius: 8px;  // Rounded corners
+  padding: 20px;  // Padding for content
+  width: 90%;  // Responsive width
+  max-width: 600px;  // Max width for larger screens
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  // Shadow effect
 }
-
 .modalContent h2 {
-  margin-top: 0; /* Remove default margin on top */
-  font-size: 1.8em;
-  color: #1e3a8a;
+  margin-top: 0;  // Remove default margin on top
 }
 
 .modalContent button {
-  background-color: #dc3545;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  background-color: #dc3545;  // Button background color
+  color: white;  // Button text color
+  padding: 8px 12px;  // Padding for button
+  border: none;  // Remove border
+  border-radius: 4px;  // Rounded corners
+  cursor: pointer;  // Pointer cursor on hover
+  transition: background-color 0.3s;  // Smooth transition for hover effect
 
-.modalContent button:hover {
-  background-color: #c82333;
+  &:hover {
+    background-color: #f1f1f1;  // Darker shade on hover
+  }
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color:  #f9f9f9;  // Background color for header
+    color: rgb(8, 8, 8);  // Text color for header
+    font-size: 1.25em;  //Headers font size
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;  // Change color on row hover
+  }
+
+  td {
+    transition: background-color 0.3s;  // Smooth transition for background color
+  }
+
+  button {
+    background-color: #007BFF;  // Button background color
+    color: white;  // Button text color
+    padding: 8px 12px;  // Padding for the button
+    border: none;  //No border
+    border-radius: 4px;  // Rounded corners
+    cursor: pointer;  // Change cursor on hover
+    transition: background-color 0.3s;  // Smooth transition for hover effect
+
+    &:hover {
+      background-color: #0056b3;  // Darker shade on hover
+    }
+  }
 }
