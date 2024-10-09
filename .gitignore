@@ -10,3 +10,7 @@ backend/package-lock.json
 /backend/node_modules
 /backend
 /backend/node_modules
+*.js
+/backend/dist
+/backend/node_modules
+/backend/dist
