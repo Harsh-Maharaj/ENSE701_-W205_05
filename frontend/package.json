@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
+    "bibtex-parse-js": "^0.0.24",
     "framer-motion": "^11.5.4",
     "next": "^14.2.5",
     "next-auth": "^4.24.7",
