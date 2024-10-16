@@ -1,16 +1,29 @@
+.formContainer {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+  text-align: center; /* Center the text */
+}
+
 .form {
   display: flex;
-flex-direction: column;
-max-width: 30em;
-margin: 0 auto; /* This will center the form horizontally */
-align-items: center; 
+  flex-direction: column;
+  max-width: 30em;
+  width: 100%; /* Ensure the form takes the full width up to the max-width */
+  align-items: center;
+  margin: 0 auto;
 }
+
 .formItem {
 padding: 1em;
 margin: 1em 0;
 width: 80%; 
 /*flex-grow: 1;*/
 }
+
 .formTextArea {
 @extend .formItem;
 min-height: 8em;
@@ -26,6 +39,22 @@ width: 3rem;
 height: 3rem;
 flex-grow: 0;
 font-size: 1.5em;
+}
+.bibtexContainer {
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bibtexInput {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.doiButton {
+  padding: 0.5rem;
+  width: 50%;
+  margin: 1em 0;
 }
 
 .modalOverlay {
