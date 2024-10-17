@@ -5,6 +5,19 @@ import { Article } from './article.schema';
 import { CreateArticleDto } from './create-article.dto';
 import { Model } from 'mongoose';
 
+/**
+ * Unit tests for ArticleService.
+ * 
+ * The purpose of these tests is to verify that the `create` method in the 
+ * ArticleService works as expected.
+ * 
+ * - `mockArticle` provides sample article data used for testing.
+ * - `mockArticleModel` mocks the Mongoose model and its `save` method.
+ * - The test verifies that an article can be created using valid input (CreateArticleDto) 
+ *   and checks if the created article matches the expected mock data.
+ * 
+ */
+
 describe('ArticleService', () => {
   let service: ArticleService;
   let model: Model<Article>;
