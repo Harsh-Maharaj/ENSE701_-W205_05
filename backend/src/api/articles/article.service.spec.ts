@@ -30,7 +30,7 @@ describe('ArticleService', () => {
     }),
   };
 
-  // Correctly mock the Mongoose model's functions
+  // Mock the Mongoose model's functions
   const mockArticleModel = jest.fn(() => ({
     save: mockArticle.save,
   }));
@@ -74,5 +74,4 @@ describe('ArticleService', () => {
     });
   });
 
-  // Add other tests as necessary
 });
