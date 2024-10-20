@@ -5,11 +5,12 @@ on:
     branches:
       - main
       - development
-      - submission
+      - Submission
   pull_request:
     branches:
       - main
       - development
+      - Submission
 
 jobs:
   backend:
