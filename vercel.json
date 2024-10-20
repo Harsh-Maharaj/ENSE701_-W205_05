@@ -6,7 +6,7 @@
     },
     {
       "src": "backend/package.json",
-      "use": "@vercel/node"
+      "use": "@vercel/nest"
     }
   ],
   "routes": [
