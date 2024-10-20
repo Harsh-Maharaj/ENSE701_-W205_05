@@ -6,7 +6,7 @@
     },
     {
       "src": "backend/package.json",
-      "use": "@vercel/nest"
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -20,8 +20,7 @@
     }
   ],
 "env": {
-  "NEXT_PUBLIC_API_URL": "https://your-backend-url",
-  "DATABASE_URL": "your-database-url"
+  "DB_URI": "mongodb+srv://admin:9z4duFk7ZU7AybI9@ense701-w205-05.5b1zs.mongodb.net/?retryWrites=true&w=majority&appName=ENSE701-W205-05"
 }
 
 }
