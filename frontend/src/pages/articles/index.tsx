@@ -78,7 +78,8 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
 
 export const getServerSideProps: GetServerSideProps<ArticlesProps> = async () => {
   try {
-    const response = await axios.get('http://localhost:3001/api/articles');
+    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    const response = await axios.get(`${apiUrl}/api/articles`);
     const articles = response.data.map((article: any) => ({
       id: article._id,
       title: article.title || '',
