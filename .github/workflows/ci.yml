@@ -31,7 +31,11 @@ jobs:
         run: |
           cd ./backend
           npm install
-
+      
+      - name: Check if Jest is installed
+        run: |
+          if [ ! -f ./node_modules/.bin/jest ]; then echo "Jest is not installed"; exit 1; fi
+      
       - name: Run backend tests
         run: |
           cd ./backend
