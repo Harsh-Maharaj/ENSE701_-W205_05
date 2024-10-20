@@ -3,11 +3,11 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - MAIN
       - development
   pull_request:
     branches:
-      - main
+      - MAIN
       - development
 
 jobs:
