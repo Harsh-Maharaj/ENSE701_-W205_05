@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - development
+      - submission
   pull_request:
     branches:
       - main
