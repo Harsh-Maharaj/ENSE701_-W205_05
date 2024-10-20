@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Logger } from '@nestjs/common';
+import { ConsoleLogger } from '@nestjs/common';
 import * as mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 
@@ -19,14 +19,18 @@ async function bootstrap() {
    * - `process.env.DB_URI` refers to the `DB_URI` variable in the `.env` file.
    * - This is used later to connect to the MongoDB database.
    ****************************************/
+  
   const dbUri = process.env.DB_URI;
   
+
+
   /****************************************
    * `Logger.log()`:
    * - Logs the MongoDB URI to ensure it was loaded correctly.
    * - `Logger` is a utility provided by NestJS for logging purposes.
    ****************************************/
-  Logger.log(`DB_URI: ${dbUri}`, 'Bootstrap');
+  const logger = new ConsoleLogger('Bootstrap');
+  logger.log(`DB_URI: ${dbUri}`);
 
   try {
     /****************************************
@@ -37,14 +41,14 @@ async function bootstrap() {
      * - If the connection is successful, a success message is logged.
      ****************************************/
     await mongoose.connect(dbUri, { serverSelectionTimeoutMS: 5000 });
-    Logger.log('Database connected successfully');
+    logger.log('Database connected successfully');
   } catch (err) {
     /****************************************
      * Error Handling:
      * - If there is an error while connecting to the database, it logs the error message.
      * - `Logger.error()` is used to log error details for debugging.
      ****************************************/
-    Logger.error('Database connection error:', err.message);
+    logger.error('Database connection error:', err.message);
   }
 
   /****************************************
@@ -76,7 +80,7 @@ async function bootstrap() {
    * - Starts the NestJS application and listens for incoming HTTP requests on the specified port.
    * - The `Logger.log()` logs a message when the server starts successfully, indicating which port the server is running on.
    ****************************************/
-  await app.listen(port, () => Logger.log(`Server running on port ${port}`));
+  await app.listen(port, () => logger.log(`Server running on port ${port}`));
 }
 
 /****************************************
