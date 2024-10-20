@@ -35,7 +35,6 @@ jobs:
       - name: Run backend tests
         run: |
           cd ./backend
-          cd backend
           ls -l ./node_modules/.bin/jest
 
 
