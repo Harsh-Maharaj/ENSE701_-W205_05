@@ -12,6 +12,6 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "ense-701-w205-05-backend-3kq0opqdg-chris-projects-a51e1af8.vercel.app"
+    "NEXT_PUBLIC_BACKEND_URL": "ense-701-w205-05-backend.vercel.app"
   }
 }
