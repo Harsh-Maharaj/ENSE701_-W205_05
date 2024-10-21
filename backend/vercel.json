@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "/dist/main.js",
+      "src": "backend/package.json",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/dist/main.js"
+      "src": "/dist/api/(.*)",
+      "dest": "dist/main.js"
     }
   ],
   "env": {
