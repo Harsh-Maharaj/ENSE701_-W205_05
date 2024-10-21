@@ -26,6 +26,9 @@ const NewDiscussion = () => {
     evidence: false,
   });
 
+  // Fetch the backend URL from environment variables
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   // Handle BibTeX file upload
   const handleBibtexUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -112,7 +115,7 @@ const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
     };
 
     try {
-      await axios.post('http://localhost:3001/api/articles', formData);
+      await axios.post(`${backendUrl}/api/articles`, formData);  // Use environment variable
       // Show success alert
       alert('Article submitted successfully!');
     } catch (error) {

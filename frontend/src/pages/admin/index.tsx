@@ -6,8 +6,11 @@ const AdminPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch the backend URL from environment variables
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   useEffect(() => {
-    fetch('http://localhost:3001/api/admin')
+    fetch(`${backendUrl}/api/admin`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch articles');
@@ -22,7 +25,7 @@ const AdminPage = () => {
         console.error('Error fetching articles:', err);
         setLoading(false);
       });
-  }, []);
+  }, [backendUrl]);
 
   const handleDelete = (id?: string) => {
     if (!id) {
@@ -31,7 +34,7 @@ const AdminPage = () => {
     }
 
     if (window.confirm('Are you sure you want to delete this article?')) {
-      fetch(`http://localhost:3001/api/admin/${id}`, {
+      fetch(`${backendUrl}/api/admin/${id}`, {
         method: 'DELETE',
       })
         .then(() => {
