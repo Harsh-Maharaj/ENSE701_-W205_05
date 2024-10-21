@@ -2,7 +2,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import NavBar from "./nav/NavBar";
 import NavDropdown from "./nav/NavDropDown";
 
-import NavItem from "./nav/NavItem"; // Fix spelling: NavItem should have an uppercase "I"
+import NavItem from "./nav/NavItem";
 import NotificationBadge from "../components/notification/NotificationBadge"; // Import the new notification component
 import { useEffect, useState } from "react";
 import axios from "axios";
