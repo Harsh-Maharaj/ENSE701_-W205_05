@@ -30,7 +30,7 @@
     "bibtex-parse-js": "^0.0.24",
     "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.5.3",
+    "mongoose": "^8.7.0",
     "multer": "^1.4.5-lts.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
