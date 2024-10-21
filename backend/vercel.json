@@ -1,13 +1,13 @@
 {
   "builds": [
     {
-      "src": "backend/package.json",
+      "src": "dist/main.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/dist/api/(.*)",
+      "src": "/(.*)",
       "dest": "dist/main.js"
     }
   ],
