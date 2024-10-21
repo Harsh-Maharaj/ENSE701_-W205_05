@@ -12,15 +12,17 @@ const PopulatedNavBar = () => {
   const [moderatedCount, setModeratedCount] = useState(0);
   const [moderatedAndRejectedCount, setModeratedAndRejectedCount] = useState(0);
 
+// Fetch the backend URL from environment variables
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
     // Fetch the number of pending moderation articles
     const fetchPendingCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/moderation/pending-count');
+        const response = await axios.get(`${backendUrl}/api/moderation/pending-count`);
         console.log("Full API response: ", response);
         setPendingCount(response.data); // Adjust based on the API response
-        console.log("pending count checking: ", response.data);
+        console.log("Pending count checking: ", response.data);
       } catch (err) {
         console.error("Error fetching pending moderation count", err);
       }
@@ -28,24 +30,23 @@ const PopulatedNavBar = () => {
 
     const fetchModeratedAndRejectedCount  = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/submitter/moderated-rejected-count');
+        const response = await axios.get(`${backendUrl}/api/submitter/moderated-rejected-count`);
         setModeratedAndRejectedCount(response.data); 
-        console.log("rejected count checking: ", response.data);
+        console.log("Rejected count checking: ", response.data);
       } catch (err) {
         console.error("Error fetching rejected article count", err);
       }
     };
 
-
     const fetchModeratedCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/analysis');
+        const response = await axios.get(`${backendUrl}/api/analysis`);
         console.log("Full API response 22222: ", response);
         setModeratedCount(response.data.length);
       } catch (err) {
-        console.log("Error fetching moderated count from the analysis api", err);
+        console.log("Error fetching moderated count from the analysis API", err);
       }
-    }
+    };
 
     // Initial fetch
     fetchPendingCount();
