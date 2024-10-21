@@ -67,11 +67,8 @@ async function bootstrap() {
    * "I’m also allowing requests with user authentication info (like cookies) to be sent."
    ****************************************/
   // Enable CORS for your frontend domain
-  app.enableCors({
-    origin: 'https://ense-701-w205-05-ifrz-dk5652cqh-chris-projects-a51e1af8.vercel.app',  // Your frontend URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,  // If you need to send cookies or authentication headers
-  });
+  app.enableCors(); // This enables CORS for all origins
+
   
 
   /****************************************
