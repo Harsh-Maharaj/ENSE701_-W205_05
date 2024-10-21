@@ -68,12 +68,9 @@ async function bootstrap() {
    ****************************************/
   // Enable CORS for your frontend domain
   app.enableCors({
-    origin: [
-      'https://ense-701-w205-05-ifrz-dk5652cqh-chris-projects-a51e1af8.vercel.app', // Frontend Vercel URL
-      'http://localhost:3000', // Localhost for development
-    ],
+    origin: 'https://ense-701-w205-05-ifrz-dk5652cqh-chris-projects-a51e1af8.vercel.app',  // Your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    credentials: true,  // If you need to send cookies or authentication headers
   });
   
 
@@ -82,9 +79,8 @@ async function bootstrap() {
    * - Retrieves the port number from the environment variables (`PORT`).
    * - If no port is specified in the environment, it defaults to port `8082`.
    ****************************************/
-  const port = process.env.PORT || 3001;
 
-  await app.listen(port); // You don't need to specify a port number when deployed on Vercel
+  await app.listen(3000); // You don't need to specify a port number when deployed on Vercel
 };
 /****************************************
  * `bootstrap()`:
