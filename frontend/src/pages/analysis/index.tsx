@@ -16,8 +16,11 @@ const AnalysisPage = () => {
   const [peerReviewed, setPeerReviewed] = useState(false);
   const [publicationType, setPublicationType] = useState('');
 
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  
   useEffect(() => {
-    fetch('http://localhost:3001/api/analysis')
+    // Use the backend URL for fetching articles
+    fetch(`${backendUrl}/api/analysis`)
       .then(res => res.json())
       .then(data => {
         setArticles(data);
@@ -27,7 +30,7 @@ const AnalysisPage = () => {
         console.error('Error fetching analysis articles:', err);
         setLoading(false);
       });
-  }, []);
+  }, [backendUrl]);
 
   const handleAnalyze = async (id: string | undefined) => {
     if (!id) {
@@ -49,19 +52,22 @@ const AnalysisPage = () => {
     };
 
     try {
-      await fetch(`http://localhost:3001/api/analysis/${id}`, {
+      // Use the backend URL for the PATCH request
+      await fetch(`${backendUrl}/api/analysis/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(analysisData),
       });
 
-      const response = await fetch('http://localhost:3001/api/analysis');
+      // Fetch the updated articles after marking one as analyzed
+      const response = await fetch(`${backendUrl}/api/analysis`);
       const updatedArticles = await response.json();
       setArticles(updatedArticles);
     } catch (error) {
       console.error('Error analyzing article:', error);
     }
   };
+
 
   if (loading) return <div className={styles.loading}>Loading...</div>;
 
