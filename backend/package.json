@@ -26,6 +26,7 @@
     "@nestjs/mongoose": "^10.0.10",
     "@nestjs/platform-express": "^10.4.4",
     "axios": "^1.7.5",
+    "mongodb": "^4.0.0",
     "bibtex-parse-js": "^0.0.24",
     "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",
