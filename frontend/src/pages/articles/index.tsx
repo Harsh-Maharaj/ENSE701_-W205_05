@@ -9,6 +9,10 @@ type ArticlesProps = {
   articles: Article[];
 };
 
+  // Use the environment variable for the API URL, fallback to localhost for development
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
+
 const Articles: NextPage<ArticlesProps> = ({ articles }) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
@@ -78,7 +82,7 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
 
 export const getServerSideProps: GetServerSideProps<ArticlesProps> = async () => {
   try {
-    const response = await axios.get('http://localhost:3001/api/articles');
+    const response = await axios.get(`${apiUrl}/api/articles`);
     const articles = response.data.map((article: any) => ({
       id: article._id,
       title: article.title || '',

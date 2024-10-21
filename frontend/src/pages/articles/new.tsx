@@ -15,8 +15,8 @@ const NewDiscussion = () => {
 
   const [showDoiInput, setShowDoiInput] = useState(false);
 
-   // State for validation errors
-   const [errors, setErrors] = useState({
+  // State for validation errors
+  const [errors, setErrors] = useState({
     title: false,
     authors: false,
     source: false,
@@ -81,7 +81,7 @@ const NewDiscussion = () => {
   };
 
   // Handle form submission
-const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // Validation checks
@@ -112,7 +112,9 @@ const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
     };
 
     try {
-      await axios.post('http://localhost:3001/api/articles', formData);
+      // Use the environment variable for the backend API URL
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      await axios.post(`${apiUrl}/api/articles`, formData);
       // Show success alert
       alert('Article submitted successfully!');
     } catch (error) {
@@ -129,15 +131,16 @@ const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
       <form onSubmit={submitNewArticle} className={formStyles.form}>
         {/* BibTeX Upload */}
         <div className={formStyles.bibtexContainer}>
-        <label htmlFor="bibtexFile">Upload BibTeX File:</label>
-        <input className={formStyles.bibtexInput}
-          type="file"
-          name="bibtexFile"
-          id="bibtexFile"
-          accept=".bib"
-          onChange={handleBibtexUpload}
-        />
+          <label htmlFor="bibtexFile">Upload BibTeX File:</label>
+          <input className={formStyles.bibtexInput}
+            type="file"
+            name="bibtexFile"
+            id="bibtexFile"
+            accept=".bib"
+            onChange={handleBibtexUpload}
+          />
         </div>
+
         {/* Toggle DOI Input */}
         <button
           type="button"
@@ -168,7 +171,6 @@ const submitNewArticle = async (event: React.FormEvent<HTMLFormElement>) => {
             </button>
           </>
         )}
-
 
         {/* form fields */}
         <label htmlFor="title">Title:</label>

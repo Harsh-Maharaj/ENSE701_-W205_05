@@ -7,9 +7,12 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const [filterBy, setFilterBy] = useState('title');
 
+      // Use the environment variable for the API URL, fallback to localhost for development
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
   const handleSearch = useCallback(() => {
     setLoading(true);
-    fetch('http://localhost:3001/api/search', {
+    fetch(`${apiUrl}/api/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query, filterBy })

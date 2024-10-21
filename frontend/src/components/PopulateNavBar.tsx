@@ -1,7 +1,6 @@
 import { IoMdArrowDropdown } from "react-icons/io";
 import NavBar from "./nav/NavBar";
-import NavDropdown from "./nav/NavDropDown";
-
+import NavDropdown from "./nav/NavDropdown";
 import NavItem from "./nav/NavItem"; // Fix spelling: NavItem should have an uppercase "I"
 import NotificationBadge from "../components/notification/NotificationBadge"; // Import the new notification component
 import { useEffect, useState } from "react";
@@ -12,47 +11,50 @@ const PopulatedNavBar = () => {
   const [moderatedCount, setModeratedCount] = useState(0);
   const [moderatedAndRejectedCount, setModeratedAndRejectedCount] = useState(0);
 
-
   useEffect(() => {
+    // Use the environment variable for the API URL, fallback to localhost for development
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
     // Fetch the number of pending moderation articles
     const fetchPendingCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/moderation/pending-count');
+        const response = await axios.get(`${apiUrl}/api/moderation/pending-count`);
         console.log("Full API response: ", response);
         setPendingCount(response.data); // Adjust based on the API response
-        console.log("pending count checking: ", response.data);
+        console.log("Pending count: ", response.data);
       } catch (err) {
         console.error("Error fetching pending moderation count", err);
       }
     };
 
-    const fetchModeratedAndRejectedCount  = async () => {
+    // Fetch moderated and rejected article count
+    const fetchModeratedAndRejectedCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/submitter/moderated-rejected-count');
-        setModeratedAndRejectedCount(response.data); 
-        console.log("rejected count checking: ", response.data);
+        const response = await axios.get(`${apiUrl}/api/submitter/moderated-rejected-count`);
+        setModeratedAndRejectedCount(response.data);
+        console.log("Rejected count: ", response.data);
       } catch (err) {
         console.error("Error fetching rejected article count", err);
       }
     };
 
-
+    // Fetch moderated article count from the analysis API
     const fetchModeratedCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/analysis');
-        console.log("Full API response 22222: ", response);
+        const response = await axios.get(`${apiUrl}/api/analysis`);
+        console.log("Full API response from analysis: ", response);
         setModeratedCount(response.data.length);
       } catch (err) {
-        console.log("Error fetching moderated count from the analysis api", err);
+        console.log("Error fetching moderated count from the analysis API", err);
       }
-    }
+    };
 
-    // Initial fetch
+    // Initial fetch of data
     fetchPendingCount();
     fetchModeratedCount();
     fetchModeratedAndRejectedCount();
 
-    // Poll every 3 seconds
+    // Poll every 3 seconds to update the counts
     const pendingIntervalId = setInterval(fetchPendingCount, 1000);
     const moderatedIntervalId = setInterval(fetchModeratedCount, 1000);
     const moderatedAndRejectedId = setInterval(fetchModeratedAndRejectedCount, 3000);
@@ -62,7 +64,6 @@ const PopulatedNavBar = () => {
       clearInterval(pendingIntervalId);
       clearInterval(moderatedIntervalId);
       clearInterval(moderatedAndRejectedId);
-
     };
 
   }, []);
@@ -91,17 +92,17 @@ const PopulatedNavBar = () => {
             Moderation
             {/* Display the red dot and count next to Moderation */}
             <NotificationBadge count={pendingCount} />
-            </NavItem>
+          </NavItem>
           <NavItem route="/analysis">
             Analysis
-            {/* Display the red dot and waiting for analysis count next to Analysis */}
+            {/* Display the red dot and count next to Analysis */}
             <NotificationBadge count={moderatedCount} />
-            </NavItem>
-            <NavItem route="/submitter">
+          </NavItem>
+          <NavItem route="/submitter">
             Submitter Dashboard
-            {/* show the count of notifications */}
+            {/* Display the count of notifications */}
             <NotificationBadge count={moderatedAndRejectedCount} />
-            </NavItem>
+          </NavItem>
           <NavItem route="/admin">Admin Dashboard</NavItem>
           <NavItem route="/search">Search</NavItem>
         </NavDropdown>

@@ -9,7 +9,6 @@ dotenv.config();
 async function bootstrap() {
     const dbUri = process.env.DB_URI;
     const logger = new common_1.ConsoleLogger('Bootstrap');
-    logger.log(`DB_URI: ${dbUri}`);
     try {
         await mongoose.connect(dbUri, { serverSelectionTimeoutMS: 5000 });
         logger.log('Database connected successfully');
@@ -20,7 +19,9 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({ origin: true, credentials: true });
     const port = process.env.PORT || 8082;
-    await app.listen(port, () => logger.log(`Server running on port ${port}`));
+    const server = await app.listen(port);
+    logger.log(`Server running on port ${port}`);
+    return server;
 }
-bootstrap();
+exports.default = bootstrap();
 //# sourceMappingURL=main.js.map

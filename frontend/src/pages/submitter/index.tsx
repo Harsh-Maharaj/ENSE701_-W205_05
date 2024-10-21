@@ -8,9 +8,12 @@ const SubmitterDashboard = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
+    // Use the environment variable for the API URL, fallback to localhost for development
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
   useEffect(() => {
     // get all the articles from the same submitter from backend
-    axios.get('http://localhost:3001/api/submitter/all')
+    axios.get(`${apiUrl}/api/submitter/all`)
       .then((response) => {
         console.log('Fetched articles', response.data);
         setArticles(response.data);

@@ -17,7 +17,7 @@ const AnalysisPage = () => {
   const [publicationType, setPublicationType] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/analysis')
+    fetch('REACT_APP_API_URL/api/analysis')
       .then(res => res.json())
       .then(data => {
         setArticles(data);
@@ -49,13 +49,13 @@ const AnalysisPage = () => {
     };
 
     try {
-      await fetch(`http://localhost:3001/api/analysis/${id}`, {
+      await fetch(`REACT_APP_API_URL/api/analysis/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(analysisData),
       });
 
-      const response = await fetch('http://localhost:3001/api/analysis');
+      const response = await fetch('REACT_APP_API_URL/api/analysis');
       const updatedArticles = await response.json();
       setArticles(updatedArticles);
     } catch (error) {

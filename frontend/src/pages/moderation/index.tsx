@@ -9,9 +9,12 @@ const ModerationPage = () => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null); // State for selected article
   const [detailLoading, setDetailLoading] = useState(false); // State for loading the article details
 
+        // Use the environment variable for the API URL, fallback to localhost for development
+        const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
   useEffect(() => {
     // Fetch pending articles from the backend
-    fetch('http://localhost:3001/api/moderation')
+    fetch(`${apiUrl}/api/moderation`)
       .then((res) => res.json())
       .then((data) => {
         const articlesWithId = data.map((article: any) => ({
@@ -31,7 +34,7 @@ const ModerationPage = () => {
 
   const handleModeration = (id: string, status: 'moderated' | 'rejected') => {
     // Update the article's moderation status
-    fetch(`http://localhost:3001/api/moderation/${id}`, {
+    fetch(`${apiUrl}/api/moderation/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status }),
@@ -45,7 +48,7 @@ const ModerationPage = () => {
   const handleCheck = (id: string) => {
     setDetailLoading(true); // Start loading
     // Fetch article details from the backend by article ID
-    fetch(`http://localhost:3001/api/articles/${id}`)
+    fetch(`${apiUrl}/api/articles/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSelectedArticle({

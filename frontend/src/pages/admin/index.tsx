@@ -6,8 +6,11 @@ const AdminPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
+    // Use the environment variable for the API URL, fallback to localhost for development
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
   useEffect(() => {
-    fetch('http://localhost:3001/api/admin')
+    fetch(`${apiUrl}/api/admin`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch articles');
@@ -31,7 +34,7 @@ const AdminPage = () => {
     }
 
     if (window.confirm('Are you sure you want to delete this article?')) {
-      fetch(`http://localhost:3001/api/admin/${id}`, {
+      fetch(`REACT_APP_API_URL/api/admin/${id}`, {
         method: 'DELETE',
       })
         .then(() => {
