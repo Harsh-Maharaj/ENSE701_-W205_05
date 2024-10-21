@@ -8,9 +8,11 @@ const SubmitterDashboard = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
+   // Fetch the backend URL from environment variables
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   useEffect(() => {
-    // get all the articles from the same submitter from backend
-    axios.get('http://localhost:3001/api/submitter/all')
+  axios.get(`${backendUrl}/api/submitter/all`)
       .then((response) => {
         console.log('Fetched articles', response.data);
         setArticles(response.data);
@@ -20,7 +22,7 @@ const SubmitterDashboard = () => {
         console.error('Oops! There is an error when fetching articles:', error);
         setLoading(false);
       });
-  }, []);
+  }, [backendUrl]);
 
   const headers = [
     { key: 'title', label: 'Title' },
