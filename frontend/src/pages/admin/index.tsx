@@ -34,7 +34,7 @@ const AdminPage = () => {
     }
 
     if (window.confirm('Are you sure you want to delete this article?')) {
-      fetch(`REACT_APP_API_URL/api/admin/${id}`, {
+      fetch(`${apiUrl}/api/admin/${id}`, {
         method: 'DELETE',
       })
         .then(() => {
