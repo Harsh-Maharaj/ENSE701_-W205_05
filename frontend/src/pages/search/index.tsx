@@ -7,9 +7,12 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const [filterBy, setFilterBy] = useState('title');
 
+  // Fetch the backend URL from environment variables
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   const handleSearch = useCallback(() => {
     setLoading(true);
-    fetch('http://localhost:3001/api/search', {
+    fetch(`${backendUrl}/api/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query, filterBy })
@@ -23,7 +26,7 @@ const SearchPage = () => {
         console.error('Error searching articles:', err);
         setLoading(false);
       });
-  }, [query, filterBy]);
+  }, [query, filterBy, backendUrl]);
 
   const handleClear = () => {
     setQuery('');
