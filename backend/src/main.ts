@@ -66,23 +66,26 @@ async function bootstrap() {
    * "I’m allowing all websites to send requests to my server."
    * "I’m also allowing requests with user authentication info (like cookies) to be sent."
    ****************************************/
-  app.enableCors({ origin: true, credentials: true });
+  // Enable CORS for your frontend domain
+  app.enableCors({
+    origin: [
+      'https://ense-701-w205-05-ifrz-dk5652cqh-chris-projects-a51e1af8.vercel.app', // Frontend Vercel URL
+      'http://localhost:3000', // Localhost for development
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+  
 
   /****************************************
    * `const port = process.env.PORT || 8082`:
    * - Retrieves the port number from the environment variables (`PORT`).
    * - If no port is specified in the environment, it defaults to port `8082`.
    ****************************************/
-  const port = process.env.PORT || 8082;
+  const port = process.env.PORT || 3001;
 
-  /****************************************
-   * `app.listen(port)`:
-   * - Starts the NestJS application and listens for incoming HTTP requests on the specified port.
-   * - The `Logger.log()` logs a message when the server starts successfully, indicating which port the server is running on.
-   ****************************************/
-  await app.listen(port, () => logger.log(`Server running on port ${port}`));
-}
-
+  await app.listen(port); // You don't need to specify a port number when deployed on Vercel
+};
 /****************************************
  * `bootstrap()`:
  * - The `bootstrap()` function is the entry point of the application. when you npm start, it execute the main.ts file first and trigger this method.
