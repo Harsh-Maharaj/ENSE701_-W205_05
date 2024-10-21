@@ -16,8 +16,11 @@ const AnalysisPage = () => {
   const [peerReviewed, setPeerReviewed] = useState(false);
   const [publicationType, setPublicationType] = useState('');
 
+    // Use the environment variable for the API URL, fallback to localhost for development
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+
   useEffect(() => {
-    fetch('REACT_APP_API_URL/api/analysis')
+    fetch(`${apiUrl}/api/analysis`)
       .then(res => res.json())
       .then(data => {
         setArticles(data);
